@@ -1,0 +1,32 @@
+@spark 
+
+River connection: @high 
+    ☐ Option3 bug
+    ☐ Error  delete existing the “river_grid (SWAT-MODFLOW)” 
+
+MODFLOW grid: @critical 
+    ✔ Check algorith for creating MODFLOW grids @1d @done(20-04-21 01:01)
+        ✔ 1st @started(20-04-20 00:07) @done(20-04-20 00:49) @lasted(42m15s)
+    ✔ Create options to add or subtract the number of column or row @6h @started(20-04-20 21:20) @done(20-04-21 01:01) @lasted(3h41m25s)
+
+Status progress: @low 
+    ☐ add it to in MODFLOW progress @2d
+        ✔ 1st @started(20-04-19 22:33) @done(20-04-19 23:56) @lasted(1h23m20s)
+    ✔ Add it txtinout @2h @started(20-04-21 09:49) @done(20-04-21 14:50) @lasted(5h1m48s)
+
+3rd module implemetation: @critical
+    ✔ Shapefile (pyshp) @3h @started(20-04-15 08:20) @done(20-04-15 12:20)
+    ✔ flopy  @3h @started(20-04-17 08:20) @done(20-04-20 15:51) @lasted(3d7h31m32s)
+        ✔ let it work first @2d @done(20-04-21 14:05)
+    ✘ cv2 @cancelled(20-04-20 16:04) it's heavy! no scripts is available.
+    ☐ ffmpeg
+
+Messages:
+    ✔ after creating river network in MODFLOW dialog @done(20-04-21 09:39)
+
+MODFLOW setting:
+    ✔ add printing out iteration results @2h @done(20-04-22 16:29)
+
+Configuration:
+    
+
