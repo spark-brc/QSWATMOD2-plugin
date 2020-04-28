@@ -20,10 +20,10 @@ The QGIS3 software must be installed on the system prior to the installation of 
 - Download [the QSWATMOD installer](https://github.com/spark-brc/QSWATMOD2/tree/master/Installer) and install it by running QSWATMOD 2.0.exe or a later version. The QSWATMOD2 is installed into the user's home directory *(~\AppData\Roaming\QGIS\QGIS3\profiles\default\python\plugins\QSWATMOD2)*, which we will refer to as the QSWATMOD2 plugin directory.
 
 <p align="center">
-    <img src="./imgs/fig_01.PNG" width="200" align="center">
+    <img src="./imgs/fig_01.png" width="200" align="center">
 </p>
 <p align="center">
-    <img src="./imgs/fig_02.PNG" width="500">
+    <img src="./imgs/fig_02.png" width="500">
 </p>
 
 QSWATMOD2 includes all dependencies directly in the plugin to avoid user-installation.  
@@ -32,16 +32,16 @@ QSWATMOD2 includes all dependencies directly in the plugin to avoid user-install
 If you don't see QSWAMOD2 icon on the toolbar,
 - Go to Plugins menu and open Manage and Install Plugins
 <p align="center">
-    <img src="./imgs/fig_03.PNG" width="700">
+    <img src="./imgs/fig_03.png" width="700">
 </p>
 
 - Click the installed tab and check QSWATMOD2 box to activate the plugin.
 <p align="center">
-    <img src="./imgs/fig_04.PNG" width="450">
+    <img src="./imgs/fig_04.png" width="450">
 
 Now, you will see the QSWATMOD2 icon on the toolbar.
 <p align="center">
-    <img src="./imgs/fig_05.PNG" width="300">
+    <img src="./imgs/fig_05.png" width="300">
 </p>
 
 <br>
@@ -53,7 +53,7 @@ There are two additional features in QSWATMOD2.
     Once a MODFLOW grid is created, first check the numbers of column and row by labeling 'col' or 'row' on the 'mf_grid' layer. <br>
     For example, I want to create 700 by 700m MODFLOW grid with the given subbasin extent (**same as MODFLOW option 2** in linking process) and it results in one column short on the MODFLOW grid.
     <p align="center">
-        <img src="./imgs/fig_06.PNG" width="1200">
+        <img src="./imgs/fig_06.png" width="1200">
     </p>
 
 - ### Threshold setting on DHRU size
@@ -66,7 +66,7 @@ There are two additional features in QSWATMOD2.
 
     For the example data set,
     <p align="center">
-        <img src="./imgs/fig_06.PNG" width="1200">
+        <img src="./imgs/fig_06.png" width="1200">
     </p>
 
 
