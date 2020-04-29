@@ -49,7 +49,7 @@ Now, you will see the QSWATMOD2 icon on the toolbar.
 
 There are two additional features in QSWATMOD2.
 - ### Add or subtract rows and columns  
-    The "Create grid" algorithm in QGIS uses a given extent, not the numbers of row and column. Thus, it occasionally creates more number of colum or row, or less number of them.
+    The "Create grid" algorithm in QGIS uses a given extent, not the numbers of row and column. Thus, it occasionally creates more number of column or row, or less number of them.
     Once a MODFLOW grid is created, first check the numbers of column and row by labeling 'col' or 'row' on the 'mf_grid' layer. <br>
     For example, I want to create 700 by 700m MODFLOW grid with the given subbasin extent (**same as MODFLOW option 2** in linking process) and it results in one column short on the MODFLOW grid.
     <p align="center">
@@ -61,7 +61,7 @@ There are two additional features in QSWATMOD2.
     During the linking process, some watersheds might generate a number of very small sizes of DHRUs (overlapping sizes on MODFLOW grid) compared to their HRUs. Although their sizes are small and those DRHUs pass small amounts of deep percolation to the MODFLOW domain they can slow down the linkage and simulation speed of a huge and complicated SWAT-MODFLOW model.
     <br>
     
-    The threshold setting on DRHU size option has been tested with the example data set. We tested several threshold settings on DHRU size using full DHRUs (no threshold), > 9000, > 30000, > 60000, and > 125000 m<sup>2</sup>. The following figures show differences from different threshold settings and a proper threshold setting on DHRU size might speed up the linking process and its simulation without lossing any information (deep percolation rate).
+    The threshold setting on DRHU size option has been tested with the example data set. We tested several threshold settings on DHRU size using full DHRUs (no threshold), > 9000, > 30000, > 60000, and > 125000 m<sup>2</sup>. The following figures show differences from different threshold settings and a proper threshold setting on DHRU size might speed up the linking process and its simulation without losing information (deep percolation rate).
 
     <br>
     <p align="center">
