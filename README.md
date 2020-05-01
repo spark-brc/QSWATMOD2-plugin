@@ -25,7 +25,7 @@ The QGIS3 software must be installed on the system prior to the installation of 
     <img src="./imgs/fig_02.png" width="500">
 </p>
 
-QSWATMOD2 includes all dependencies directly in the plugin to avoid user-installation.  
+QSWATMOD2 includes all dependencies ([FloPy](https://www.usgs.gov/software/flopy-python-package-creating-running-and-post-processing-modflow-based-models) ([Bakker et al., 2016](https://onlinelibrary.wiley.com/doi/abs/10.1002/hyp.10933)) and [PyShp](https://pypi.org/project/pyshp/)) directly in the plugin to avoid user-installation.  
 - Open QGIS3 after the installation of QSWATMOD2 is finished.
 
 If you don't see QSWAMOD2 icon on the toolbar,
@@ -49,19 +49,18 @@ Now, you will see the QSWATMOD2 icon on the toolbar.
 
 There are two additional features in QSWATMOD2.
 - ### Add or subtract rows and columns  
-    The "Create grid" algorithm in QGIS uses a given extent, not the numbers of row and column. Thus, it occasionally creates more number of column or row, or less number of them.
-    Once a MODFLOW grid is created, first check the numbers of column and row by labeling 'col' or 'row' on the 'mf_grid' layer. <br>
-    For example, I want to create 700 by 700m MODFLOW grid with the given subbasin extent (**same as MODFLOW option 2** in linking process) and it results in one column short on the MODFLOW grid.
+    The "Create grid" algorithm in QGIS uses a given spatial extent and not the number of rows and columns. Thus, the algorithm occasionally creates more number of column or row, or less number of them. Once a MODFLOW grid is created, first check the number of columns and rows by labeling 'col' or 'row' on the 'mf_grid' layer. <br>
+    For example, I want to create a MODFLOW grid with 700 m by 700 m grid cells for a given subbasin extent (**same as MODFLOW option 2** in linking process), resulting in one column too few in the MODFLOW grid. I can then use the “Add or Subtract Row and Column” option to add one column.
     <p align="center">
         <img src="./imgs/fig_06.png" width="1200">
     </p>
 
 - ### Threshold setting on DHRU size
 
-    During the linking process, some watersheds might generate a number of very small sizes of DHRUs (overlapping sizes on MODFLOW grid) compared to their HRUs. Although their sizes are small and those DRHUs pass small amounts of deep percolation to the MODFLOW domain they can slow down the linkage and simulation speed of a huge and complicated SWAT-MODFLOW model.
+    During the linking process, disaggregating HRUs often generates a large number of very small DHRUs. These DHRUs then are intersected with the MODFLOW grid cells, to provide a connection between HRU variables and MODFLOW grid cells during the SWAT-MODFLOW simulation ([Bailey et al., 2016](https://onlinelibrary.wiley.com/doi/abs/10.1002/hyp.10933)). For a large SWAT-MODFLOW models, these small DHRUs are insignificant in terms of passing data (e.g. recharge) from SWAT HRUs to MODFLOW grid cells,  but can slow down the linkage process and SWAT-MODFLOW simulation speed.
     <br>
     
-    The threshold setting on DRHU size option has been tested with the example data set. We tested several threshold settings on DHRU size using full DHRUs (no threshold), > 9000, > 30000, > 60000, and > 125000 m<sup>2</sup>. The following figures show differences from different threshold settings and a proper threshold setting on DHRU size might speed up the linking process and its simulation without losing information (deep percolation rate).
+    Therefore, QSWATMOD now has the option to limit the size of DHRUs. The threshold setting on DRHU size option has been tested with an example data set. We tested several threshold settings on DHRU size using full DHRUs (no threshold), and DHRUs that must be > 9000, > 30000, > 60000, and > 125000 m<sup>2</sup>. The following figures show differences in spatial coverage that results in using different threshold settings. A proper threshold setting on DHRU size may speed up the linking process and the SWAT-MODFLOW simulation without losing information (e.g. recharge rate).
 
     <br>
     <p align="center">
@@ -71,7 +70,7 @@ There are two additional features in QSWATMOD2.
 <br>
 <br>
 
-In addition, [documentation and the SWAT-MODFLOW executable](https://swat.tamu.edu/software/swat-modflow/) are available as downloads. QSWATMOD and SWAT-MODFLOW have been tested in several watersheds. However, no warranty is given that either the model or tool is completely error-free. If you encounter problems with the model, tool or have suggestions for improvement, please comment at [the SWAT-MODFLOW Google group](https://groups.google.com/forum/?hl=en#!forum/swat-modflow) or [QSWATMOD github](https://github.com/spark-brc/qswatmod/issues).
+In addition, [documentation and the SWAT-MODFLOW executable](https://swat.tamu.edu/software/swat-modflow/) are available as downloads. QSWATMOD and SWAT-MODFLOW have been tested in several watersheds. However, no warranty is given that either the model or tool is completely error-free. If you encounter problems with the model, tool or have suggestions for improvement, please comment at [the SWAT-MODFLOW Google group](https://groups.google.com/forum/?hl=en#!forum/swat-modflow) or [QSWATMOD github](https://github.com/spark-brc/QSWATMOD2/issues).
 
 A publication documenting QSWATMOD and an example application can be found here:  
 [https://doi.org/10.1016/j.envsoft.2018.10.017](https://doi.org/10.1016/j.envsoft.2018.10.017)
