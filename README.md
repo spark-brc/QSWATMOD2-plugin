@@ -61,7 +61,6 @@ There are two additional features in QSWATMOD2.
     <br>
     
     Therefore, QSWATMOD now has the option to limit the size of DHRUs. The threshold setting on DRHU size option has been tested with an example data set. We tested several threshold settings on DHRU size using full DHRUs (no threshold), and DHRUs that must be > 9000, > 30000, > 60000, and > 125000 m<sup>2</sup>. The following figures show differences in spatial coverage that results in using different threshold settings. A proper threshold setting on DHRU size may speed up the linking process and the SWAT-MODFLOW simulation without losing information (e.g. recharge rate).
-
     <br>
     <p align="center">
         <img src="./imgs/fig_07.png" width="1200">
