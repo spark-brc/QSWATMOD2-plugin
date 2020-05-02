@@ -45,7 +45,7 @@
       <bool>true</bool>
      </property>
      <property name="currentIndex">
-      <number>2</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="General">
       <attribute name="title">
@@ -81,12 +81,54 @@
              <verstretch>0</verstretch>
             </sizepolicy>
            </property>
+           <property name="palette">
+            <palette>
+             <active>
+              <colorrole role="Base">
+               <brush brushstyle="SolidPattern">
+                <color alpha="255">
+                 <red>240</red>
+                 <green>240</green>
+                 <blue>240</blue>
+                </color>
+               </brush>
+              </colorrole>
+             </active>
+             <inactive>
+              <colorrole role="Base">
+               <brush brushstyle="SolidPattern">
+                <color alpha="255">
+                 <red>240</red>
+                 <green>240</green>
+                 <blue>240</blue>
+                </color>
+               </brush>
+              </colorrole>
+             </inactive>
+             <disabled>
+              <colorrole role="Base">
+               <brush brushstyle="SolidPattern">
+                <color alpha="255">
+                 <red>240</red>
+                 <green>240</green>
+                 <blue>240</blue>
+                </color>
+               </brush>
+              </colorrole>
+             </disabled>
+            </palette>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>9</pointsize>
+            </font>
+           </property>
            <property name="html">
             <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'AdvTT6120e2aa,serif'; font-size:9pt;&quot;&gt;    The coupled QSWATMOD2 framework developed in this study combines the updated SWAT 2012 model (Revision 591) with MODFLOW-NWT. Within the framework, SWAT simulates land surface processes, crop growth, in-stream processes and soil zone processes, whereas MODFLOW-NWT simulates three-dimensional groundwater &lt;/span&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;fl&lt;/span&gt;&lt;span style=&quot; font-family:'AdvTT6120e2aa,serif'; font-size:9pt;&quot;&gt;ow and all associated sources and sinks (e.g. recharge, pumping, discharge to tile drains and interaction with stream network).&lt;/span&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-family:'AdvTT6120e2aa,serif'; font-size:9pt;&quot;&gt;The basic process of linking the SWAT and MODFLOW models is to pass HRU-calculated deep percolation (i.e. water that exits the bottom of the soil pro&lt;/span&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;fi&lt;/span&gt;&lt;span style=&quot; font-family:'AdvTT6120e2aa,serif'; font-size:9pt;&quot;&gt;le) as recharge to the grid cells of MODFLOW, and then pass MODFLOW-calculated groundwater–surface water interaction fluxes to the stream channels of SWAT.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'AdvTT6120e2aa,serif'; font-size:10pt;&quot;&gt;    The coupled QSWATMOD2 framework developed in this study combines the updated SWAT 2012 model (Revision 591) with MODFLOW-NWT. Within the framework, SWAT simulates land surface processes, crop growth, in-stream processes and soil zone processes, whereas MODFLOW-NWT simulates three-dimensional groundwater &lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;fl&lt;/span&gt;&lt;span style=&quot; font-family:'AdvTT6120e2aa,serif'; font-size:10pt;&quot;&gt;ow and all associated sources and sinks (e.g. recharge, pumping, discharge to tile drains and interaction with stream network).&lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-family:'AdvTT6120e2aa,serif'; font-size:10pt;&quot;&gt;The basic process of linking the SWAT and MODFLOW models is to pass HRU-calculated deep percolation (i.e. water that exits the bottom of the soil pro&lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;fi&lt;/span&gt;&lt;span style=&quot; font-family:'AdvTT6120e2aa,serif'; font-size:10pt;&quot;&gt;le) as recharge to the grid cells of MODFLOW, and then pass MODFLOW-calculated groundwater–surface water interaction fluxes to the stream channels of SWAT.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
           </widget>
          </item>
@@ -159,6 +201,43 @@ p, li { white-space: pre-wrap; }
              <verstretch>0</verstretch>
             </sizepolicy>
            </property>
+           <property name="palette">
+            <palette>
+             <active>
+              <colorrole role="Base">
+               <brush brushstyle="SolidPattern">
+                <color alpha="255">
+                 <red>240</red>
+                 <green>240</green>
+                 <blue>240</blue>
+                </color>
+               </brush>
+              </colorrole>
+             </active>
+             <inactive>
+              <colorrole role="Base">
+               <brush brushstyle="SolidPattern">
+                <color alpha="255">
+                 <red>240</red>
+                 <green>240</green>
+                 <blue>240</blue>
+                </color>
+               </brush>
+              </colorrole>
+             </inactive>
+             <disabled>
+              <colorrole role="Base">
+               <brush brushstyle="SolidPattern">
+                <color alpha="255">
+                 <red>240</red>
+                 <green>240</green>
+                 <blue>240</blue>
+                </color>
+               </brush>
+              </colorrole>
+             </disabled>
+            </palette>
+           </property>
           </widget>
          </item>
          <item>
@@ -182,6 +261,43 @@ p, li { white-space: pre-wrap; }
          </item>
          <item>
           <widget class="QLineEdit" name="lineEdit_proj_path">
+           <property name="palette">
+            <palette>
+             <active>
+              <colorrole role="Base">
+               <brush brushstyle="SolidPattern">
+                <color alpha="255">
+                 <red>240</red>
+                 <green>240</green>
+                 <blue>240</blue>
+                </color>
+               </brush>
+              </colorrole>
+             </active>
+             <inactive>
+              <colorrole role="Base">
+               <brush brushstyle="SolidPattern">
+                <color alpha="255">
+                 <red>240</red>
+                 <green>240</green>
+                 <blue>240</blue>
+                </color>
+               </brush>
+              </colorrole>
+             </inactive>
+             <disabled>
+              <colorrole role="Base">
+               <brush brushstyle="SolidPattern">
+                <color alpha="255">
+                 <red>240</red>
+                 <green>240</green>
+                 <blue>240</blue>
+                </color>
+               </brush>
+              </colorrole>
+             </disabled>
+            </palette>
+           </property>
            <property name="autoFillBackground">
             <bool>false</bool>
            </property>
@@ -2010,103 +2126,116 @@ p, li { white-space: pre-wrap; }
         </layout>
        </item>
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_57">
+        <layout class="QVBoxLayout" name="verticalLayout_37">
+         <property name="spacing">
+          <number>3</number>
+         </property>
          <property name="topMargin">
           <number>0</number>
          </property>
-         <item>
-          <widget class="QLabel" name="label_StepStatus">
-           <property name="text">
-            <string>Step Status:</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QProgressBar" name="progressBar_step">
-           <property name="palette">
-            <palette>
-             <active>
-              <colorrole role="Highlight">
-               <brush brushstyle="SolidPattern">
-                <color alpha="255">
-                 <red>255</red>
-                 <green>85</green>
-                 <blue>255</blue>
-                </color>
-               </brush>
-              </colorrole>
-             </active>
-             <inactive>
-              <colorrole role="Highlight">
-               <brush brushstyle="SolidPattern">
-                <color alpha="255">
-                 <red>255</red>
-                 <green>85</green>
-                 <blue>255</blue>
-                </color>
-               </brush>
-              </colorrole>
-             </inactive>
-             <disabled>
-              <colorrole role="Highlight">
-               <brush brushstyle="SolidPattern">
-                <color alpha="255">
-                 <red>0</red>
-                 <green>120</green>
-                 <blue>215</blue>
-                </color>
-               </brush>
-              </colorrole>
-             </disabled>
-            </palette>
-           </property>
-           <property name="value">
-            <number>0</number>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_14">
-         <property name="topMargin">
+         <property name="bottomMargin">
           <number>0</number>
          </property>
          <item>
-          <widget class="QLabel" name="label_43">
-           <property name="text">
-            <string>Total Progress:</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QProgressBar" name="progressBar_sm_link">
-           <property name="value">
+          <layout class="QHBoxLayout" name="horizontalLayout_57">
+           <property name="topMargin">
             <number>0</number>
            </property>
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="invertedAppearance">
-            <bool>false</bool>
-           </property>
-           <property name="textDirection">
-            <enum>QProgressBar::TopToBottom</enum>
-           </property>
-           <property name="format">
-            <string>%p%</string>
-           </property>
-          </widget>
+           <item>
+            <widget class="QLabel" name="label_StepStatus">
+             <property name="text">
+              <string>Step Status:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QProgressBar" name="progressBar_step">
+             <property name="palette">
+              <palette>
+               <active>
+                <colorrole role="Highlight">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>255</red>
+                   <green>85</green>
+                   <blue>255</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+               </active>
+               <inactive>
+                <colorrole role="Highlight">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>255</red>
+                   <green>85</green>
+                   <blue>255</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+               </inactive>
+               <disabled>
+                <colorrole role="Highlight">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>0</red>
+                   <green>120</green>
+                   <blue>215</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+               </disabled>
+              </palette>
+             </property>
+             <property name="value">
+              <number>0</number>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </item>
          <item>
-          <widget class="QCheckBox" name="checkBox_filesPrepared">
-           <property name="text">
-            <string>All files are prepared!</string>
+          <layout class="QHBoxLayout" name="horizontalLayout_14">
+           <property name="topMargin">
+            <number>0</number>
            </property>
-           <property name="checkable">
-            <bool>true</bool>
-           </property>
-          </widget>
+           <item>
+            <widget class="QLabel" name="label_43">
+             <property name="text">
+              <string>Total Progress:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QProgressBar" name="progressBar_sm_link">
+             <property name="value">
+              <number>0</number>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="invertedAppearance">
+              <bool>false</bool>
+             </property>
+             <property name="textDirection">
+              <enum>QProgressBar::TopToBottom</enum>
+             </property>
+             <property name="format">
+              <string>%p%</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="checkBox_filesPrepared">
+             <property name="text">
+              <string>All files are prepared!</string>
+             </property>
+             <property name="checkable">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </item>
         </layout>
        </item>
@@ -6750,15 +6879,15 @@ SWAT-MODFLOW Simulation</string>
   </connection>
  </connections>
  <buttongroups>
-  <buttongroup name="buttonGroup_mf_active"/>
   <buttongroup name="buttonGroup_str_obd"/>
-  <buttongroup name="buttonGroup_mf_swat"/>
-  <buttongroup name="buttonGroup_irrig_active"/>
-  <buttongroup name="buttonGroup_drain_active"/>
   <buttongroup name="buttonGroup_gw_delay"/>
+  <buttongroup name="buttonGroup_drain_active"/>
   <buttongroup name="buttonGroup_RT3D_active"/>
-  <buttongroup name="buttonGroup_wt_obd"/>
   <buttongroup name="buttonGroup_head_recharge"/>
+  <buttongroup name="buttonGroup_mf_active"/>
+  <buttongroup name="buttonGroup_irrig_active"/>
   <buttongroup name="buttonGroup_irrig_swat_active"/>
+  <buttongroup name="buttonGroup_mf_swat"/>
+  <buttongroup name="buttonGroup_wt_obd"/>
  </buttongroups>
 </ui>
