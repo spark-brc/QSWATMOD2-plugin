@@ -66,7 +66,6 @@ There are two additional features in QSWATMOD2.
     <p align="center">
         <img src="./imgs/fig_07.png" width="1200">
     </p>
-
 <br>
 <br>
 
