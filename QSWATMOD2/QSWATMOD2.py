@@ -1708,6 +1708,8 @@ class QSWATMOD2(object):
         # linking_process.create_dhru_grid_filter(self)
         # self.dlg.progressBar_sm_link.setValue(95)
         # QCoreApplication.processEvents()
+        # NOTE: less than 900 create zero features from small grids
+        # NOTE: let's set 30 sqm in next version
         linking_process.delete_dhru_grid_with_zero(self)
         QCoreApplication.processEvents()
 

@@ -281,7 +281,7 @@ def delete_hru_dhru_with_zero(self):
 
     self.layer = QgsProject.instance().mapLayersByName("hru_dhru (SWAT-MODFLOW)")[0]
     provider = self.layer.dataProvider()
-    request =  QgsFeatureRequest().setFilterExpression('"area_f" < 900')
+    request =  QgsFeatureRequest().setFilterExpression('"area_f" < 9')
     request.setSubsetOfAttributes([])
     request.setFlags(QgsFeatureRequest.NoGeometry)
     tot_feats = self.layer.featureCount()
@@ -347,7 +347,7 @@ def create_dhru_grid_filter(self):
     self.dlg.textEdit_sm_link_log.append(time+' -> ' + "Calculating overlapping sizes ... processing")
     self.dlg.textEdit_sm_link_log.append('              ⮡     *** BE PATIENT!!! This step takes the most time! ***    ')
 
-    self.dlg.label_StepStatus.setText("Calculating overlapping sizes than the setting ... ")
+    self.dlg.label_StepStatus.setText("Calculating overlapping sizes ... ")
     self.dlg.progressBar_step.setValue(0)
     QCoreApplication.processEvents()
 
@@ -394,7 +394,7 @@ def delete_dhru_grid_with_zero(self):
         threshold = self.dlg.horizontalSlider_ol_area.value()
         request = QgsFeatureRequest().setFilterExpression('"ol_area" < {}'.format(threshold))
     else:
-        request = QgsFeatureRequest().setFilterExpression('"ol_area" < 900')
+        request = QgsFeatureRequest().setFilterExpression('"ol_area" < 9')
     request.setSubsetOfAttributes([])
     request.setFlags(QgsFeatureRequest.NoGeometry)
     tot_feats = self.layer.featureCount()

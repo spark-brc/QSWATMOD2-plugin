@@ -307,7 +307,6 @@ def link_drain(self):
         scenario_tree = root.findGroup("Scenarios")
         scenario_tree.addGroup("Drains to SWAT Channels")
 
-
     try:
         QSWATMOD_path_dict = self.dirs_and_paths()
         self.layer = QgsProject.instance().mapLayersByName("mf_grid (MODFLOW)")[0]
@@ -354,18 +353,22 @@ def link_drain(self):
 
         # Deselect the features
         self.layer.removeSelection()
-
         # Join sub and drn
         n2_ext = "drain2sub_f.shp"
         drn_chn_f = os.path.join(output_dir, n2_ext)
         # QgsVectorFileWriter.deleteShapeFile(irrig_mf_s)
         sub_shp = QgsProject.instance().mapLayersByName("sub (SWAT)")[0]
+        parmas = {
+            'INPUT': drn_chn,
+            'JOIN': sub_shp,
+            'PREDICATE': [0],
+            'METHOD': 0,
+            'DISCARD_NONMATCHING': False,
+            'OUTPUT':drn_chn_f
+        }
         processing.run(
                         "qgis:joinattributesbylocation",
-                        drn_chn,
-                        sub_shp,
-                        ['intersects'],0,0,"sum,mean,min,max,median",0,
-                        drn_chn_f)
+                        parmas)
 
         # delete unnecessary fields
         layer_drn = QgsVectorLayer(drn_chn_f, '{0}'.format("drain2sub"), 'ogr')
@@ -375,25 +378,23 @@ def link_drain(self):
         p_mf_tree.insertChildNode(0, QgsLayerTreeLayer(layer_drn))
 
         input2 = QgsProject.instance().mapLayersByName("drain2sub")[0]
-        fields = input2.dataProvider()
-        fdname = [
-                    fields.indexFromName(field.name()) for field in fields.fields() if not (
+        input2_provider = input2.dataProvider()
+        fdnames = [
+                    input2_provider.fields().indexFromName(field.name()) for field in input2_provider.fields() if not (
                         field.name() == 'Subbasin' or
                         field.name() == 'row' or
                         field.name() == 'col' or
-                        field.name() == 'layer')]
+                        field.name() == 'layer')
+                        ]
 
-        fields.deleteAttributes(fdname)
+        input2_provider.deleteAttributes(fdnames)
         input2.updateFields()
-
         msgBox.setWindowTitle("Created!")
         msgBox.setText("'drain2sub.shp' file has been created!")
         msgBox.exec_()
     except:
         msgBox.setWindowTitle("No Drain package found!")
         msgBox.setText("Please, provide a drain package to your MODFLOW model first!")
- 
- 
         self.dlg.spinBox_irrig_mf.setEnabled(False)
         self.dlg.pushButton_irrig_mf.setEnabled(False)
         self.dlg.pushButton_irrig_mf_create.setEnabled(False)
