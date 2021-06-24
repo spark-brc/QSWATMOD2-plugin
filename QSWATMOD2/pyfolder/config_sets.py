@@ -79,7 +79,7 @@ def create_conv_runoff(self):
         for feat in feats:
             # attr = feat.attributes() #  this can be used for changing value based on value from other column
             input2.changeAttributeValue(feat.id(), cvy_idx, 1)
-            input2.changeAttributeValue(feat.id(), runoff_idx, 0.05)    
+            input2.changeAttributeValue(feat.id(), runoff_idx, 0.05)
         input2.commitChanges()
 
         # msgBox = QMessageBox()
@@ -90,20 +90,27 @@ def create_conv_runoff(self):
 
         # FIXME, TODO: require escapting code to check *.wel file.
         # Find *.wel file and read number of grid cells and set maximum grid cells
-        try:
-            for filename in glob.glob(str(QSWATMOD_path_dict['SMfolder'])+"/*.wel"):
-                with open(filename, "r") as f:
-                    data = []
-                    for line in f.readlines():
-                        if not line.startswith("#"):
-                            data.append(line.replace('\n', '').split())
-            wel_max = int(data[0][0])
-            self.dlg.spinBox_irrig_mf.setMaximum(wel_max)
-        except:
-            msgBox.setWindowTitle("No Well package found!")
-            msgBox.setText("Please, provide a well package to your MODFLOW model first!")
-            self.dlg.spinBox_irrig_mf.setEnabled(False)
-            msgBox.exec_()
+        # try:
+        for filename in glob.glob(QSWATMOD_path_dict['SMfolder']+"/*.wel"):
+            with open(filename, "r") as f:
+                data = []
+                for line in f.readlines():
+                    if not line.startswith("#"):
+                        data.append(line.replace('\n', '').split())
+        wel_max = int(data[0][0])
+        self.dlg.spinBox_irrig_mf.setMaximum(wel_max)
+        self.dlg.spinBox_irrig_mf.setValue(wel_max)
+        
+        msgBox.setWindowTitle("Created!")
+        msgBox.setText("{} file has been created!".format(wel_max))
+        msgBox.exec_()
+        
+        
+        # except:
+        #     msgBox.setWindowTitle("No Well package found!")
+        #     msgBox.setText("Please, provide a well package to your MODFLOW model first!")
+        #     self.dlg.spinBox_irrig_mf.setEnabled(False)
+        #     msgBox.exec_()
     else:
         msgBox.setWindowTitle("Error!")
         msgBox.setText("Your project couldn't be read.\nPlease, go back to the linking process!")
@@ -117,108 +124,109 @@ def link_irrig_mf(self):
     provider = self.layer.dataProvider()
     welnum = self.dlg.spinBox_irrig_mf.value()
     # Find *.wel file and read number of grid cells
-    try:
-        for filename in glob.glob(str(QSWATMOD_path_dict['SMfolder'])+"/*.wel"):
-            with open(filename, "r") as f:
-                data = []
-                for line in f.readlines():
-                    if not line.startswith("#"):
-                        data.append(line.replace('\n', '').split())
-        wel_row = []
-        wel_col = []
+    # try:
+    for filename in glob.glob(str(QSWATMOD_path_dict['SMfolder'])+"/*.wel"):
+        with open(filename, "r") as f:
+            data = []
+            for line in f.readlines():
+                if not line.startswith("#"):
+                    data.append(line.replace('\n', '').split())
+    wel_row = []
+    wel_col = []
 
-        # Skip two lines in Riv package and get row and col
-        for i in range(2, welnum+2):
-            wel_row.append(int(data[i][1]))
-            wel_col.append(int(data[i][2]))
+    # Skip two lines in Riv package and get row and col
+    for i in range(2, welnum+2):
+        wel_row.append(int(data[i][1]))
+        wel_col.append(int(data[i][2]))
 
-        # Find grid cells according to the well package
-        feats = self.layer.getFeatures()
-        wel_matched = []
+    # Find grid cells according to the well package
+    feats = self.layer.getFeatures()
+    wel_matched = []
 
-        for f in feats:
-            rowNo = f.attribute("row")
-            colNo = f.attribute("col")
-            # rowNo = f.attribute["row"]
-            # colNo = f.attribute["col"]
-            for i in range(len(wel_row)):
-                if ((rowNo == wel_row[i]) and (colNo == wel_col[i])):
-                    wel_matched.append(f.id())
-        self.layer.selectByIds(wel_matched)
+    for f in feats:
+        rowNo = f.attribute("row")
+        colNo = f.attribute("col")
+        # rowNo = f.attribute["row"]
+        # colNo = f.attribute["col"]
+        for i in range(len(wel_row)):
+            if ((rowNo == wel_row[i]) and (colNo == wel_col[i])):
+                wel_matched.append(f.id())
+    self.layer.selectByIds(wel_matched)
 
-        name = "irrig_mf"
-        name_ext = "irrig_mf.shp"
-        output_dir = QSWATMOD_path_dict['Scenarios']
+    name = "irrig_mf"
+    name_ext = "irrig_mf.shp"
+    output_dir = QSWATMOD_path_dict['Scenarios']
 
-        # Save just the selected features of the target layer
-        irrig_mf = os.path.join(output_dir, name_ext)
+    # Save just the selected features of the target layer
+    irrig_mf = os.path.join(output_dir, name_ext)
 
-        # QgsVectorFileWriter.deleteShapeFile(irrig_mf)
+    # QgsVectorFileWriter.deleteShapeFile(irrig_mf)
 
-        QgsVectorFileWriter.writeAsVectorFormat(
-            input1, irrig_mf,
-            "utf-8", input1.crs(), "ESRI Shapefile", 1)
+    QgsVectorFileWriter.writeAsVectorFormat(
+        input1, irrig_mf,
+        "utf-8", input1.crs(), "ESRI Shapefile", 1)
 
-        # Deselect the features
-        self.layer.removeSelection()
+    # Deselect the features
+    self.layer.removeSelection()
 
-        # Join sub and hru id
-        n3_ext = "irrig_mf_s.shp"
-        irrig_mf_s = os.path.join(output_dir, n3_ext)
-        # QgsVectorFileWriter.deleteShapeFile(irrig_mf_s)
-        sub_shp = QgsProject.instance().mapLayersByName("sub (SWAT)")[0]
-        processing.run(
-                        "qgis:joinattributesbylocation",
-                        irrig_mf,
-                        sub_shp,
-                        ['intersects'],0,0,"sum,mean,min,max,median",0,
-                        irrig_mf_s)
+    # Join sub and hru id
+    n3_ext = "irrig_mf_s.shp"
+    irrig_mf_s = os.path.join(output_dir, n3_ext)
+    # QgsVectorFileWriter.deleteShapeFile(irrig_mf_s)
+    sub_shp = QgsProject.instance().mapLayersByName("sub (SWAT)")[0]
+    params = {
+        'INPUT':irrig_mf,
+        'JOIN': sub_shp,
+        'PREDICATE': [0],
+        'METHOD': 0,
+        'DISCARD_NONMATCHING': False,
+        'OUTPUT': irrig_mf_s,
+    }
+    processing.run("qgis:joinattributesbylocation", params)
 
-        # Join sub id
-        n4_ext = "irrig_mf_f.shp"
-        irrig_mf_f = os.path.join(output_dir, n4_ext)
-        # QgsVectorFileWriter.deleteShapeFile(irrig_mf_f)
-        hru_shp = QgsProject.instance().mapLayersByName("hru (SWAT)")[0]
-        processing.run(
-                        "qgis:joinattributesbylocation",
-                        irrig_mf_s,
-                        hru_shp,
-                        ['intersects'],0,0,"sum,mean,min,max,median",0,
-                        irrig_mf_f)
+    # Join sub id
+    n4_ext = "irrig_mf_f.shp"
+    irrig_mf_f = os.path.join(output_dir, n4_ext)
+    # QgsVectorFileWriter.deleteShapeFile(irrig_mf_f)
+    hru_shp = QgsProject.instance().mapLayersByName("hru (SWAT)")[0]
 
-        # delete unnecessary fields
-        layer_mf = QgsVectorLayer(irrig_mf_f, '{0}'.format("irrig_mf"), 'ogr')
-        QgsProject.instance().addMapLayer(layer_mf, False)
-        root = QgsProject.instance().layerTreeRoot()
-        p_mf_tree = root.findGroup("Pumping from MODFLOW")
-        p_mf_tree.insertChildNode(0, QgsLayerTreeLayer(layer_mf))
-        input2 = QgsProject.instance().mapLayersByName("irrig_mf")[0]
-        fields = input2.dataProvider()
-        fdname = [
-                fields.indexFromName(field.name()) for field in fields.fields() if not (
-                    field.name() == 'Subbasin' or
-                    field.name() == 'row' or
-                    field.name() == 'col' or
-                    field.name() == 'HRU_ID'
+    params02 = {
+        'INPUT':irrig_mf_s,
+        'JOIN': hru_shp,
+        'PREDICATE': [0],
+        'METHOD': 0,
+        'DISCARD_NONMATCHING': False,
+        'OUTPUT': irrig_mf_f,
+    }
+    processing.run("qgis:joinattributesbylocation", params02)
+
+    # delete unnecessary fields
+    layer_mf = QgsVectorLayer(irrig_mf_f, '{0}'.format("irrig_mf"), 'ogr')
+    QgsProject.instance().addMapLayer(layer_mf, False)
+    root = QgsProject.instance().layerTreeRoot()
+    p_mf_tree = root.findGroup("Pumping from MODFLOW")
+    p_mf_tree.insertChildNode(0, QgsLayerTreeLayer(layer_mf))
+    input2 = QgsProject.instance().mapLayersByName("irrig_mf")[0]
+    fields = input2.dataProvider()
+    fdname = [
+            fields.fields().indexFromName(field.name()) for field in fields.fields() if not (
+                field.name() == 'Subbasin' or
+                field.name() == 'row' or
+                field.name() == 'col' or
+                field.name() == 'HRU_ID'
+                )
+            ]
+
+    fields.deleteAttributes(fdname)
+    input2.updateFields()
+
+    msgBox.setWindowTitle("Created!")
+    msgBox.setText(
+                    "'irrig_mf.shp' file has been created!\n"+
+                    "If you have multiple HRUs, open its Attribute table and modify it."
                     )
-                ]
+    msgBox.exec_()
 
-        fields.deleteAttributes(fdname)
-        input2.updateFields()
-
-        msgBox.setWindowTitle("Created!")
-        msgBox.setText(
-                        "'irrig_mf.shp' file has been created!\n"+
-                        "If you have multiple HRUs, open its Attribute table and modify it."
-                        )
-        msgBox.exec_()
-    except:
-        msgBox.setWindowTitle("No Well package found!")
-        msgBox.setText("Please, provide a well package to your MODFLOW model first!")
-        self.dlg.spinBox_irrig_mf.setEnabled(False)
-        self.dlg.pushButton_irrig_mf.setEnabled(False)
-        self.dlg.pushButton_irrig_mf_create.setEnabled(False)
-        msgBox.exec_()
 
 def create_irrig_mf(self):
     import operator
@@ -288,7 +296,6 @@ def create_irrig_mf(self):
         writer.writerow(B4)
         for item in data_h:
             writer.writerow([item[0], item[1]])
-
     msgBox.setWindowTitle("Created!")
     msgBox.setText(
                     "'swatmf_irrigate.txt' file has been created successfully!"
@@ -298,8 +305,7 @@ def create_irrig_mf(self):
 
 def link_drain(self):
     # Create Scenarios tree inside 
-    root = QgsProject.instance().layerTreeRoot()
-    
+    root = QgsProject.instance().layerTreeRoot()  
     if not root.findGroup("Scenarios"):
         sm_tree = root.findGroup("SWAT-MODFLOW")
         sm_tree.addGroup("Scenarios")
@@ -365,7 +371,7 @@ def link_drain(self):
             'METHOD': 0,
             'DISCARD_NONMATCHING': False,
             'OUTPUT':drn_chn_f
-        }
+            }
         processing.run(
                         "qgis:joinattributesbylocation",
                         parmas)
@@ -386,7 +392,6 @@ def link_drain(self):
                         field.name() == 'col' or
                         field.name() == 'layer')
                         ]
-
         input2_provider.deleteAttributes(fdnames)
         input2.updateFields()
         msgBox.setWindowTitle("Created!")
@@ -399,6 +404,7 @@ def link_drain(self):
         self.dlg.pushButton_irrig_mf.setEnabled(False)
         self.dlg.pushButton_irrig_mf_create.setEnabled(False)
         msgBox.exec_()
+
 
 def create_drain2sub(self):
     # read drain2sub
