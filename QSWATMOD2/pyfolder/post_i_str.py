@@ -103,14 +103,10 @@ def sd_plot_daily(self):
                             usecols=[1, 3, colNum],
                             names=["date", "filter", "streamflow_sim"],
                             index_col=0)
-
         sub_ob = self.dlg.comboBox_SD_obs_data.currentText()
         # sub_ob = 'sub_58'
-
         try:
-        # if (output_rch.index[0] == 1):
             df = output_rch.loc[outletSubNum]
-
             # Based on SWAT Time Step condition
             if self.dlg.radioButton_day.isChecked():
                 df.index = pd.date_range(startDate, periods=len(df.streamflow_sim))
@@ -122,7 +118,6 @@ def sd_plot_daily(self):
             ax.plot(df.index, df.streamflow_sim, c='limegreen', lw=1, label="Simulated")
             df2 = pd.concat([df, strObd[sub_ob]], axis=1)
             df3 = df2.dropna()
-
             if self.dlg.radioButton_str_obd_pt.isChecked():
                 size = float(self.dlg.spinBox_str_obd_size.value())
                 ax.scatter(
@@ -132,9 +127,7 @@ def sd_plot_daily(self):
                 ax.plot(
                         df3.index, df3[sub_ob], c='m', lw=1.5, alpha=0.5,
                         label="Observed", zorder=3)
-
             ax.xaxis.set_major_formatter(mdates.DateFormatter('%b-%d\n%Y'))
-    
             if (len(df3[sub_ob]) > 1):
                 ## R-squared
                 r_squared = (
@@ -146,56 +139,46 @@ def sd_plot_daily(self):
                         (sum((df3[sub_ob] - df3[sub_ob].mean())**2)* (sum((df3.streamflow_sim-df3.streamflow_sim.mean())**2))
                     ))
                 )
-
                 ##Nash–Sutcliffe (E) model efficiency coefficient ---used up in the class
                 dNS = 1 - (sum((df3.streamflow_sim - df3[sub_ob])**2) / 
                     sum((df3[sub_ob] - (df3[sub_ob]).mean())**2))
-
                 ## PBIAS
                 PBIAS =  100*(sum(df3[sub_ob] - df3.streamflow_sim) / sum(df3[sub_ob]))
-
-
                 ax.text(
                     .01, 0.95, u'Nash–Sutcliffe: '+ "%.4f" % dNS,
                     fontsize = 8,
                     horizontalalignment='left',
                     color='limegreen',
                     transform=ax.transAxes)
-
                 ax.text(
                     .01, 0.90, r'$R^2$: ' + "%.4f" % r_squared,
                     fontsize = 8,
                     horizontalalignment='left',
                     color='limegreen',
                     transform=ax.transAxes)
-
                 ax.text(
                     .99, 0.95, u'PBIAS: ' + "%.4f" % PBIAS,
                     fontsize=8,
                     horizontalalignment='right',
                     color='limegreen',
                     transform=ax.transAxes)
-
             else:
                 ax.text(.01,.95, u'Nash–Sutcliffe: '+ u"---",
                     fontsize = 8,
                     horizontalalignment='left',
                     transform=ax.transAxes)
-    
                 ax.text(.01, 0.90, r'$R^2$: '+ u"---",
                     fontsize = 8,
                     horizontalalignment='left',
                     color='limegreen',
                     transform=ax.transAxes)
-
                 ax.text(.99, 0.95, u'PBIAS: '+ "---",
                     fontsize = 8,
                     horizontalalignment='right',
                     color='limegreen',
                     transform=ax.transAxes)
-
-        except:         
-            ax.text(.5,.5, u"Running the simulation for a warm-up period!",
+        except Exception as e:         
+            ax.text(.5,.5, e,
                     fontsize = 12,
                     horizontalalignment='center',
                     weight = 'extra bold',

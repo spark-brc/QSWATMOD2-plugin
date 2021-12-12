@@ -45,7 +45,7 @@
       <bool>true</bool>
      </property>
      <property name="currentIndex">
-      <number>2</number>
+      <number>3</number>
      </property>
      <widget class="QWidget" name="General">
       <attribute name="title">
@@ -2148,7 +2148,7 @@ p, li { white-space: pre-wrap; }
             <x>0</x>
             <y>0</y>
             <width>609</width>
-            <height>564</height>
+            <height>597</height>
            </rect>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_15">
@@ -3361,7 +3361,7 @@ p, li { white-space: pre-wrap; }
                      <bool>false</bool>
                     </property>
                     <property name="collapsed">
-                     <bool>true</bool>
+                     <bool>false</bool>
                     </property>
                     <property name="saveCollapsedState">
                      <bool>false</bool>
@@ -3403,7 +3403,7 @@ p, li { white-space: pre-wrap; }
                           <number>1</number>
                          </property>
                          <property name="maximum">
-                          <number>999</number>
+                          <number>9999</number>
                          </property>
                         </widget>
                        </item>
@@ -3913,7 +3913,7 @@ SWAT-MODFLOW Simulation</string>
      </widget>
      <widget class="QWidget" name="tab_4">
       <attribute name="title">
-       <string>Post-Processing</string>
+       <string>Post-Processing-Hydrology</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_25">
        <item>
@@ -6142,6 +6142,7 @@ SWAT-MODFLOW Simulation</string>
                              <font>
                               <weight>50</weight>
                               <bold>false</bold>
+                              <kerning>true</kerning>
                              </font>
                             </property>
                             <property name="value">
@@ -6149,6 +6150,9 @@ SWAT-MODFLOW Simulation</string>
                             </property>
                             <property name="alignment">
                              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                            </property>
+                            <property name="textVisible">
+                             <bool>true</bool>
                             </property>
                             <property name="format">
                              <string>%p%</string>
@@ -6519,6 +6523,781 @@ SWAT-MODFLOW Simulation</string>
        </item>
       </layout>
      </widget>
+     <widget class="QWidget" name="tab_5">
+      <attribute name="title">
+       <string>Post-Processing-RT3D</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_37">
+       <item>
+        <widget class="QScrollArea" name="scrollArea_4">
+         <property name="widgetResizable">
+          <bool>true</bool>
+         </property>
+         <widget class="QWidget" name="scrollAreaWidgetContents_4">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>626</width>
+            <height>634</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_54">
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_60">
+             <item>
+              <widget class="QLabel" name="label_71">
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>Visualize RT3D Results</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_8">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="checkBox">
+               <property name="text">
+                <string>Dark Background</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="groupBox_11">
+             <property name="font">
+              <font>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="title">
+              <string>Export RT3D Nitrate / Phosphorus Concentration (mg/L)</string>
+             </property>
+             <property name="checkable">
+              <bool>true</bool>
+             </property>
+             <property name="checked">
+              <bool>false</bool>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_55">
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_61">
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_64">
+                  <item>
+                   <widget class="QFrame" name="frame_5">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="frameShape">
+                     <enum>QFrame::StyledPanel</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
+                    </property>
+                    <layout class="QVBoxLayout" name="verticalLayout_56">
+                     <item>
+                      <layout class="QHBoxLayout" name="horizontalLayout_65">
+                       <item>
+                        <widget class="QCheckBox" name="checkBox_nitrate">
+                         <property name="sizePolicy">
+                          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                           <horstretch>0</horstretch>
+                           <verstretch>0</verstretch>
+                          </sizepolicy>
+                         </property>
+                         <property name="font">
+                          <font>
+                           <weight>50</weight>
+                           <bold>false</bold>
+                          </font>
+                         </property>
+                         <property name="text">
+                          <string>Nitrate</string>
+                         </property>
+                         <attribute name="buttonGroup">
+                          <string notr="true">buttonGroup_rt3d_map</string>
+                         </attribute>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QCheckBox" name="checkBox_phos">
+                         <property name="sizePolicy">
+                          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                           <horstretch>0</horstretch>
+                           <verstretch>0</verstretch>
+                          </sizepolicy>
+                         </property>
+                         <property name="font">
+                          <font>
+                           <weight>50</weight>
+                           <bold>false</bold>
+                          </font>
+                         </property>
+                         <property name="text">
+                          <string>Phosporous</string>
+                         </property>
+                         <attribute name="buttonGroup">
+                          <string notr="true">buttonGroup_rt3d_map</string>
+                         </attribute>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QComboBox" name="comboBox_rt_layer"/>
+                       </item>
+                      </layout>
+                     </item>
+                     <item>
+                      <layout class="QHBoxLayout" name="horizontalLayout_66">
+                       <item>
+                        <widget class="QRadioButton" name="radioButton_mf_rt3d_d">
+                         <property name="sizePolicy">
+                          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                           <horstretch>0</horstretch>
+                           <verstretch>0</verstretch>
+                          </sizepolicy>
+                         </property>
+                         <property name="font">
+                          <font>
+                           <weight>50</weight>
+                           <bold>false</bold>
+                          </font>
+                         </property>
+                         <property name="text">
+                          <string>Day</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QRadioButton" name="radioButton_mf_rt3d_m">
+                         <property name="sizePolicy">
+                          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                           <horstretch>0</horstretch>
+                           <verstretch>0</verstretch>
+                          </sizepolicy>
+                         </property>
+                         <property name="font">
+                          <font>
+                           <weight>50</weight>
+                           <bold>false</bold>
+                          </font>
+                         </property>
+                         <property name="text">
+                          <string>Month</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QRadioButton" name="radioButton_mf_rt3d_y">
+                         <property name="sizePolicy">
+                          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                           <horstretch>0</horstretch>
+                           <verstretch>0</verstretch>
+                          </sizepolicy>
+                         </property>
+                         <property name="font">
+                          <font>
+                           <weight>50</weight>
+                           <bold>false</bold>
+                          </font>
+                         </property>
+                         <property name="text">
+                          <string>Year</string>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QFrame" name="frame_19">
+                    <property name="frameShape">
+                     <enum>QFrame::StyledPanel</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
+                    </property>
+                    <layout class="QVBoxLayout" name="verticalLayout_57">
+                     <item>
+                      <layout class="QVBoxLayout" name="verticalLayout_58">
+                       <item>
+                        <widget class="QGroupBox" name="groupBox_rt_duration">
+                         <property name="font">
+                          <font>
+                           <weight>50</weight>
+                           <bold>false</bold>
+                          </font>
+                         </property>
+                         <property name="title">
+                          <string>Duration</string>
+                         </property>
+                         <property name="checkable">
+                          <bool>false</bool>
+                         </property>
+                         <property name="checked">
+                          <bool>false</bool>
+                         </property>
+                         <layout class="QHBoxLayout" name="horizontalLayout_70">
+                          <item>
+                           <widget class="QComboBox" name="comboBox_rt_results_sdate"/>
+                          </item>
+                          <item>
+                           <widget class="QLabel" name="label_73">
+                            <property name="sizePolicy">
+                             <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                              <horstretch>0</horstretch>
+                              <verstretch>0</verstretch>
+                             </sizepolicy>
+                            </property>
+                            <property name="font">
+                             <font>
+                              <weight>50</weight>
+                              <bold>false</bold>
+                             </font>
+                            </property>
+                            <property name="text">
+                             <string>to</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QComboBox" name="comboBox_rt_results_edate"/>
+                          </item>
+                         </layout>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QgsCollapsibleGroupBox" name="mGroupBox_rt_avg">
+                         <property name="font">
+                          <font>
+                           <weight>50</weight>
+                           <bold>false</bold>
+                          </font>
+                         </property>
+                         <property name="title">
+                          <string>Average Monthly</string>
+                         </property>
+                         <property name="checkable">
+                          <bool>true</bool>
+                         </property>
+                         <property name="checked">
+                          <bool>false</bool>
+                         </property>
+                         <property name="collapsed">
+                          <bool>false</bool>
+                         </property>
+                         <property name="saveCollapsedState">
+                          <bool>false</bool>
+                         </property>
+                         <layout class="QVBoxLayout" name="verticalLayout_59">
+                          <item>
+                           <layout class="QGridLayout" name="gridLayout">
+                            <item row="0" column="2">
+                             <widget class="QCheckBox" name="checkBox_rt_mar">
+                              <property name="sizePolicy">
+                               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                                <horstretch>0</horstretch>
+                                <verstretch>0</verstretch>
+                               </sizepolicy>
+                              </property>
+                              <property name="text">
+                               <string>Mar</string>
+                              </property>
+                             </widget>
+                            </item>
+                            <item row="0" column="0">
+                             <widget class="QCheckBox" name="checkBox_rt_jan">
+                              <property name="sizePolicy">
+                               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                                <horstretch>0</horstretch>
+                                <verstretch>0</verstretch>
+                               </sizepolicy>
+                              </property>
+                              <property name="text">
+                               <string>Jan</string>
+                              </property>
+                             </widget>
+                            </item>
+                            <item row="0" column="4">
+                             <widget class="QCheckBox" name="checkBox_rt_may">
+                              <property name="sizePolicy">
+                               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                                <horstretch>0</horstretch>
+                                <verstretch>0</verstretch>
+                               </sizepolicy>
+                              </property>
+                              <property name="text">
+                               <string>May</string>
+                              </property>
+                             </widget>
+                            </item>
+                            <item row="0" column="1">
+                             <widget class="QCheckBox" name="checkBox_rt_feb">
+                              <property name="sizePolicy">
+                               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                                <horstretch>0</horstretch>
+                                <verstretch>0</verstretch>
+                               </sizepolicy>
+                              </property>
+                              <property name="text">
+                               <string>Feb</string>
+                              </property>
+                             </widget>
+                            </item>
+                            <item row="0" column="3">
+                             <widget class="QCheckBox" name="checkBox_rt_apr">
+                              <property name="sizePolicy">
+                               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                                <horstretch>0</horstretch>
+                                <verstretch>0</verstretch>
+                               </sizepolicy>
+                              </property>
+                              <property name="text">
+                               <string>Apr</string>
+                              </property>
+                             </widget>
+                            </item>
+                            <item row="0" column="5">
+                             <widget class="QCheckBox" name="checkBox_rt_jun">
+                              <property name="sizePolicy">
+                               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                                <horstretch>0</horstretch>
+                                <verstretch>0</verstretch>
+                               </sizepolicy>
+                              </property>
+                              <property name="text">
+                               <string>Jun</string>
+                              </property>
+                             </widget>
+                            </item>
+                            <item row="1" column="0">
+                             <widget class="QCheckBox" name="checkBox_rt_jul">
+                              <property name="text">
+                               <string>Jul</string>
+                              </property>
+                             </widget>
+                            </item>
+                            <item row="1" column="1">
+                             <widget class="QCheckBox" name="checkBox_rt_aug">
+                              <property name="text">
+                               <string>Aug</string>
+                              </property>
+                             </widget>
+                            </item>
+                            <item row="1" column="2">
+                             <widget class="QCheckBox" name="checkBox_rt_sep">
+                              <property name="text">
+                               <string>Sep</string>
+                              </property>
+                             </widget>
+                            </item>
+                            <item row="1" column="3">
+                             <widget class="QCheckBox" name="checkBox_rt_oct">
+                              <property name="text">
+                               <string>Oct</string>
+                              </property>
+                             </widget>
+                            </item>
+                            <item row="1" column="4">
+                             <widget class="QCheckBox" name="checkBox_rt_nov">
+                              <property name="text">
+                               <string>Nov</string>
+                              </property>
+                             </widget>
+                            </item>
+                            <item row="1" column="5">
+                             <widget class="QCheckBox" name="checkBox_rt_dec">
+                              <property name="text">
+                               <string>Dec</string>
+                              </property>
+                             </widget>
+                            </item>
+                           </layout>
+                          </item>
+                         </layout>
+                        </widget>
+                       </item>
+                      </layout>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_67">
+                  <item>
+                   <widget class="QPushButton" name="pushButton_export_rt_results">
+                    <property name="font">
+                     <font>
+                      <weight>50</weight>
+                      <bold>false</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>EXPORT</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout_62">
+                    <property name="spacing">
+                     <number>3</number>
+                    </property>
+                    <item>
+                     <widget class="QProgressBar" name="progressBar_rt">
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>15</height>
+                       </size>
+                      </property>
+                      <property name="font">
+                       <font>
+                        <weight>50</weight>
+                        <bold>false</bold>
+                       </font>
+                      </property>
+                      <property name="value">
+                       <number>0</number>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QProgressBar" name="progressBar_rt_results">
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>15</height>
+                       </size>
+                      </property>
+                      <property name="font">
+                       <font>
+                        <weight>50</weight>
+                        <bold>false</bold>
+                       </font>
+                      </property>
+                      <property name="value">
+                       <number>0</number>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QgsCollapsibleGroupBox" name="mGroupBox_cvt_vtr">
+             <property name="font">
+              <font>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="title">
+              <string>Convert Vector Maps to Rasters</string>
+             </property>
+             <property name="checkable">
+              <bool>true</bool>
+             </property>
+             <property name="checked">
+              <bool>false</bool>
+             </property>
+             <property name="collapsed">
+              <bool>false</bool>
+             </property>
+             <property name="saveCollapsedState">
+              <bool>false</bool>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_60">
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_69">
+                <property name="topMargin">
+                 <number>0</number>
+                </property>
+                <item>
+                 <widget class="QLabel" name="label_72">
+                  <property name="font">
+                   <font>
+                    <weight>50</weight>
+                    <bold>false</bold>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>NODATA:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="lineEdit_nodata">
+                  <property name="font">
+                   <font>
+                    <weight>50</weight>
+                    <bold>false</bold>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>-9999</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="Line" name="line_20">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_74">
+                  <property name="font">
+                   <font>
+                    <weight>50</weight>
+                    <bold>false</bold>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>MIN:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="lineEdit">
+                  <property name="font">
+                   <font>
+                    <weight>50</weight>
+                    <bold>false</bold>
+                   </font>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QgsColorButton" name="mColorButton_min_rmap">
+                  <property name="font">
+                   <font>
+                    <weight>50</weight>
+                    <bold>false</bold>
+                   </font>
+                  </property>
+                  <property name="color">
+                   <color>
+                    <red>255</red>
+                    <green>255</green>
+                    <blue>255</blue>
+                   </color>
+                  </property>
+                  <property name="defaultColor">
+                   <color>
+                    <red>255</red>
+                    <green>255</green>
+                    <blue>255</blue>
+                   </color>
+                  </property>
+                  <property name="showNoColor">
+                   <bool>false</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="Line" name="line_19">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_75">
+                  <property name="font">
+                   <font>
+                    <weight>50</weight>
+                    <bold>false</bold>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>MAX:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="lineEdit_2">
+                  <property name="font">
+                   <font>
+                    <weight>50</weight>
+                    <bold>false</bold>
+                   </font>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QgsColorButton" name="mColorButton_max_rmap">
+                  <property name="color">
+                   <color>
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                   </color>
+                  </property>
+                  <property name="defaultColor">
+                   <color>
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                   </color>
+                  </property>
+                  <property name="showNoColor">
+                   <bool>false</bool>
+                  </property>
+                  <property name="noColorString">
+                   <string>No color</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_76">
+                  <property name="font">
+                   <font>
+                    <weight>50</weight>
+                    <bold>false</bold>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>Duration:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QDoubleSpinBox" name="doubleSpinBox_ani_r_time">
+                  <property name="font">
+                   <font>
+                    <weight>50</weight>
+                    <bold>false</bold>
+                   </font>
+                  </property>
+                  <property name="decimals">
+                   <number>1</number>
+                  </property>
+                  <property name="singleStep">
+                   <double>0.100000000000000</double>
+                  </property>
+                  <property name="value">
+                   <double>0.500000000000000</double>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_68">
+                <property name="leftMargin">
+                 <number>0</number>
+                </property>
+                <item>
+                 <widget class="QComboBox" name="comboBox_vector_lyrs">
+                  <property name="minimumSize">
+                   <size>
+                    <width>200</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <weight>50</weight>
+                    <bold>false</bold>
+                   </font>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="pushButton_cvt_vtr">
+                  <property name="font">
+                   <font>
+                    <weight>50</weight>
+                    <bold>false</bold>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>CONVERT</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QProgressBar" name="progressBar_cvt_vtr">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>15</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <weight>50</weight>
+                    <bold>false</bold>
+                   </font>
+                  </property>
+                  <property name="value">
+                   <number>0</number>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_3">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
      <widget class="QWidget" name="tab">
       <attribute name="title">
        <string>Parameter Estimation</string>
@@ -6694,7 +7473,7 @@ SWAT-MODFLOW Simulation</string>
           </font>
          </property>
          <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#0000ff;&quot;&gt;- Version: 2.0-&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#0000ff;&quot;&gt;- Version: 2.2-&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
@@ -6713,6 +7492,11 @@ SWAT-MODFLOW Simulation</string>
    <extends>QGroupBox</extends>
    <header>qgscollapsiblegroupbox.h</header>
    <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>QgsColorButton</class>
+   <extends>QToolButton</extends>
+   <header>qgscolorbutton.h</header>
   </customwidget>
  </customwidgets>
  <connections>
@@ -6750,15 +7534,16 @@ SWAT-MODFLOW Simulation</string>
   </connection>
  </connections>
  <buttongroups>
-  <buttongroup name="buttonGroup_mf_active"/>
-  <buttongroup name="buttonGroup_str_obd"/>
-  <buttongroup name="buttonGroup_mf_swat"/>
-  <buttongroup name="buttonGroup_irrig_active"/>
-  <buttongroup name="buttonGroup_drain_active"/>
   <buttongroup name="buttonGroup_gw_delay"/>
-  <buttongroup name="buttonGroup_RT3D_active"/>
-  <buttongroup name="buttonGroup_wt_obd"/>
   <buttongroup name="buttonGroup_head_recharge"/>
+  <buttongroup name="buttonGroup_rt3d_map"/>
+  <buttongroup name="buttonGroup_mf_active"/>
   <buttongroup name="buttonGroup_irrig_swat_active"/>
+  <buttongroup name="buttonGroup_drain_active"/>
+  <buttongroup name="buttonGroup_wt_obd"/>
+  <buttongroup name="buttonGroup_mf_swat"/>
+  <buttongroup name="buttonGroup_str_obd"/>
+  <buttongroup name="buttonGroup_RT3D_active"/>
+  <buttongroup name="buttonGroup_irrig_active"/>
  </buttongroups>
 </ui>

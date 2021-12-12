@@ -1,3 +1,4 @@
 {
-    "python.linting.pylintEnabled": true
+    "python.linting.pylintEnabled": true,
+    "python.pythonPath": "C:\\OSGEO4~1\\apps\\Python37\\python.exe"
 }

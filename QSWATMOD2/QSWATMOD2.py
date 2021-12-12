@@ -73,7 +73,7 @@ from .pyfolder import post_vi_head
 from .pyfolder import cvt_plotsToVideo
 from .pyfolder import retrieve_ProjHistory
 from .pyfolder import config_sets
-
+from .pyfolder import post_vii_nitrate
 # ----------------------------------------------------------------------#
 import time
 from datetime import datetime
@@ -283,6 +283,7 @@ class QSWATMOD2(object):
         self.dlg.radioButton_gw_delay_single.toggled.connect(self.gwd_selection)
         self.dlg.radioButton_gw_delay_multi.toggled.connect(self.gwd_selection)
         self.dlg.pushButton_gw_delay_multi.clicked.connect(self.gw_delay)
+        # self.dlg.spinBox_irrig_
 
         ### fourthTab
         self.dlg.comboBox_SD_timeStep.clear()
@@ -369,13 +370,29 @@ class QSWATMOD2(object):
 
         # ---------------------------------------------------------------------------------------------
         self.dlg.tabWidget.currentChanged.connect(self.check_outputs)
+        self.dlg.tabWidget.currentChanged.connect(self.check_outputs_rt3d)
         self.dlg.tabWidget.currentChanged.connect(self.define_sim_period)
         # ---------------------------------------------------------------------------------------------
+        
+        # 5th tab for RT3D results --------------------------------------------------------------------
+        ## Export mf_nitrate to shapefile
+        self.dlg.radioButton_mf_rt3d_d.toggled.connect(self.import_mf_dates)
+        self.dlg.radioButton_mf_rt3d_m.toggled.connect(self.import_mf_dates)
+        self.dlg.radioButton_mf_rt3d_y.toggled.connect(self.import_mf_dates)
+        self.dlg.checkBox_nitrate.toggled.connect(self.import_mf_dates)
+        self.dlg.pushButton_export_rt_results.clicked.connect(self.export_mf_results)
+        self.dlg.mGroupBox_rt_avg.toggled.connect(self.get_rt_avg_m_df)
+        self.dlg.mGroupBox_cvt_vtr.toggled.connect(self.read_vector_maps)
+        self.dlg.pushButton_cvt_vtr.clicked.connect(self.cvt_vtr)
+        # ---------------------------------------------------------------------------------------------
+        
+        
+        
         # Run
         self.dlg.pushButton_run_SM.clicked.connect(self.run_SM)
 
         # Set tab enable
-        for i in range(1, 5):
+        for i in range(1, 6):
             self.dlg.tabWidget.setTabEnabled(i, False)
 
         # show the dialog
@@ -507,6 +524,12 @@ class QSWATMOD2(object):
             post_iii_rch.export_mf_recharge(self)
         elif self.dlg.checkBox_head.isChecked():
             post_vi_head.export_mf_head(self)
+        elif self.dlg.checkBox_nitrate.isChecked() and not self.dlg.mGroupBox_rt_avg.isChecked():
+            post_vii_nitrate.export_rt_cno3(self)
+        elif  self.dlg.checkBox_nitrate.isChecked() and self.dlg.mGroupBox_rt_avg.isChecked():
+            self.export_rt_cno3_avg_m()
+
+
 
     def import_mf_dates(self):
         if self.dlg.checkBox_recharge.isChecked():
@@ -516,6 +539,10 @@ class QSWATMOD2(object):
             post_vi_head.read_mf_nOflayers(self)
             self.dlg.radioButton_mf_results_d.setEnabled(False)
             post_vi_head.read_mf_head_dates(self)
+        elif self.dlg.checkBox_nitrate.isChecked():
+            post_vii_nitrate.read_mf_nOflayers(self)
+            post_vii_nitrate.read_mf_nitrate_dates(self)
+
 
     def import_mf_gwsw_dates(self):
         post_iv_gwsw.read_mf_gwsw_dates(self)
@@ -1780,6 +1807,15 @@ class QSWATMOD2(object):
         else:
             self.dlg.tabWidget.setTabEnabled(3, False)
 
+    def check_outputs_rt3d(self):
+        self.dirs_and_paths()
+        output_dir = QSWATMOD_path_dict['SMfolder']
+        output_files = ["swatmf_link.txt", "swatmf_out_RT_cno3_monthly"]
+        if all(os.path.isfile(os.path.join(output_dir, x)) for x in output_files):
+            self.dlg.tabWidget.setTabEnabled(4, True)
+        else:
+            self.dlg.tabWidget.setTabEnabled(4, False)
+
     # # It's amazing how i figured it out by trials and errors -------------------------------
     # def loadDEM_main(self):
     #   class_mf = createMFmodelDialog(self) # make the class the object
@@ -1912,3 +1948,19 @@ class QSWATMOD2(object):
         model.select()
         model.setHeaderData(1, QtCore.Qt.Horizontal, "what")
         self.dlg.tableView_test.setModel(model)
+
+
+# NOTE: --- RT related functions tab5
+    def get_rt_avg_m_df(self):
+        if self.dlg.mGroupBox_rt_avg.isChecked():
+            post_vii_nitrate.create_rt_avg_mon_shp(self)
+    
+    def export_rt_cno3_avg_m(self):
+        post_vii_nitrate.export_rt_cno3_avg_m(self)
+
+    def read_vector_maps(self):
+        post_vii_nitrate.read_vector_maps(self)
+
+    def cvt_vtr(self):
+        post_vii_nitrate.cvt_vtr(self)
+# ---

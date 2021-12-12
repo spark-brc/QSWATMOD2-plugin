@@ -15,6 +15,7 @@ import shutil
 from datetime import datetime
 import csv
 
+# TODO: implement "creat_hru_id" function
 
 def calculate_hru_area(self):
     time = datetime.now().strftime('[%m/%d/%y %H:%M:%S]')
