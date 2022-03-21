@@ -9,7 +9,8 @@ All other materials: example dataset and tutorial document can be downloaded fro
 - **[Installer](https://github.com/spark-brc/QSWATMOD2/tree/master/Installer):** QSWATMOD 2.0.exe
 - **[Inputs](https://github.com/spark-brc/QSWATMOD2/tree/master/Inputs):** ExampleDataset.zip
 - **[Source Code](https://github.com/spark-brc/QSWATMOD2/tree/master/QSWATMOD2)**
-- **[Tutorial Document](https://github.com/spark-brc/qswatmod/blob/master/QSWATMOD%20Tutorial.pdf)**
+- **[QSWATMOD Tutorial Document](https://github.com/spark-brc/QSWATMOD2/releases/download/v2.0/QSWATMOD_tutorial.pdf)**
+- [SWAT-MODFLOW Tutorial Document](https://github.com/spark-brc/QSWATMOD2/releases/download/v2.0/SWAT-MODFLOW.Tutorial_v3.pdf)
 
 -----
 # Installation
