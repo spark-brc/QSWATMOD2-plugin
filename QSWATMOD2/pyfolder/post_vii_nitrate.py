@@ -12,9 +12,9 @@ import datetime
 import pandas as pd
 import os
 import glob
-from PyQt5.QtGui import QIcon, QColor, QImage, QPainter
+from PyQt5.QtGui import QIcon, QColor, QImage, QPainter, QPen, QFont
 from PyQt5.QtWidgets import QMessageBox
-from qgis.PyQt.QtCore import QVariant, QCoreApplication, QSize
+from qgis.PyQt.QtCore import QVariant, QCoreApplication, QSize, Qt, QPoint, QRect
 import calendar
 import processing
 from qgis.gui import QgsMapCanvas
@@ -552,26 +552,20 @@ def cvt_vtr(self):
         rastergroup = root.findGroup(selectedVector)
     else:
         rastergroup = swatmf_results.insertGroup(0, selectedVector)
-
-
     per = 0
     self.dlg.progressBar_cvt_vtr.setValue(0)
-
     for fdnam in fdnames:
         QCoreApplication.processEvents()
         nodata = float(self.dlg.lineEdit_nodata.text())
         mincolor = self.dlg.mColorButton_min_rmap.color().name()
         maxcolor = self.dlg.mColorButton_max_rmap.color().name()
-
         name = fdnam
         name_ext = "{}.tif".format(name)
         output_dir = QSWATMOD_path_dict['SMshps']
-        
         # create folder for each layer output
         rasterpath = os.path.join(output_dir, selectedVector)
         if not os.path.exists(rasterpath):
             os.makedirs(rasterpath)
-
         output_raster = os.path.join(rasterpath, name_ext)
         params = {
             'INPUT': layer,
@@ -595,7 +589,6 @@ def cvt_vtr(self):
         lst = [QgsColorRampShader.ColorRampItem(rmin, QColor(mincolor)), QgsColorRampShader.ColorRampItem(rmax, QColor(maxcolor))]
         fnc.setColorRampItemList(lst)
         fnc.setColorRampType(QgsColorRampShader.Interpolated)
-
         shader = QgsRasterShader()
         shader.setRasterShaderFunction(fnc)
         renderer = QgsSingleBandPseudoColorRenderer(rasterlayer.dataProvider(), 1, shader)
@@ -632,10 +625,23 @@ def cvt_vtr(self):
         render = QgsMapRendererCustomPainterJob(ms, p)
         render.start()
         render.waitForFinished()
+        # get timestamp
+        p.drawImage(QPoint(), img)
+        pen = QPen(Qt.red)
+        pen.setWidth(2)
+        p.setPen(pen)
+
+        font = QFont()
+        font.setFamily('Times')
+        # font.setBold(True)
+        font.setPointSize(18)
+        p.setFont(font)
+        # p.setBackground(QColor('sea green')) doesn't work    
+        p.drawText(QRect(0, 0, 800, 800), Qt.AlignRight | Qt.AlignBottom, fdnam)
         p.end()
 
         # save the image
-        img.save(os.path.join(rasterpath, '{:03d}_{}.png'.format(per, fdnam)))
+        img.save(os.path.join(rasterpath, '{:03d}_{}.jpg'.format(per, fdnam)))
         
         # Update progress bar         
         per += 1
@@ -649,7 +655,7 @@ def cvt_vtr(self):
     duration = self.dlg.doubleSpinBox_ani_r_time.value()
 
     # filepaths
-    fp_in = os.path.join(rasterpath, '*.png')
+    fp_in = os.path.join(rasterpath, '*.jpg')
     fp_out = os.path.join(rasterpath, '{}.gif'.format(selectedVector))
 
     # https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html#gif

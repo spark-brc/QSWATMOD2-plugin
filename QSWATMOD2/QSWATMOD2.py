@@ -1692,6 +1692,7 @@ class QSWATMOD2(object):
         self.dlg.progressBar_sm_link.setValue(0)
         self.dlg.textEdit_sm_link_log.append('======== Start Linking Process =========')
 
+
         # Calculate HRU area
         linking_process.calculate_hru_area(self)
         self.dlg.progressBar_sm_link.setValue(20)         
@@ -1720,6 +1721,8 @@ class QSWATMOD2(object):
         # self.dlg.progressBar_sm_link.setValue(80)
         # self.dlg.textEdit_sm_link_log.append('MODFLOW grid area is calculated!')
         # QCoreApplication.processEvents()
+
+
 
         # Get dhru_grid
         linking_process.dhru_grid(self)

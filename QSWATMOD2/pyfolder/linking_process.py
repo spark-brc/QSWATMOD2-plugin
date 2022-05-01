@@ -327,7 +327,7 @@ def dhru_grid(self):
 
     # defining the outputfile to be loaded into the canvas        
     dhru_grid_shapefile = os.path.join(output_dir, name_ext)
-    layer = QgsVectorLayer(dhru_grid_shapefile, '{0} ({1})'.format("dhru_grid","SWAT-MODFLOW"), 'ogr')
+    layer = QgsVectorLayer(dhru_grid_shapefile, '{0} ({1})'.format("dhru_grid", "SWAT-MODFLOW"), 'ogr')
 
     # Put in the group
     root = QgsProject.instance().layerTreeRoot()
