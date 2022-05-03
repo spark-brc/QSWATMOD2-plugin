@@ -303,6 +303,7 @@ class createMFmodelDialog(QDialog, FORM_CLASS):
             swat_group.insertChildNode(0, QgsLayerTreeLayer(layer))
             self.lineEdit_boundary.setText(mf_bd_gpkg)
 
+    # NOTE: clear about gpkg or shp
     def use_sub_shapefile(self):
         QSWATMOD_path_dict = self.dirs_and_paths()
 
@@ -311,7 +312,7 @@ class createMFmodelDialog(QDialog, FORM_CLASS):
             #provider = layer.dataProvider()
             if self.checkBox_use_sub.isChecked():
                 name = "mf_boundary"
-                name_ext = "mf_boundary.gpkg"
+                name_ext = "mf_boundary.shp"
                 output_dir = QSWATMOD_path_dict['org_shps']
                 mf_boundary = os.path.join(output_dir, name_ext)
                 params = {
