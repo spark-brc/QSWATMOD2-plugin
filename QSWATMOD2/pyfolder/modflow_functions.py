@@ -945,7 +945,7 @@ def riv_cond_delete_NULL(self):
 
 
 def defaultExtent(self):
-    from qgis.PyQt import QtCore, QtGui, QtSql
+    # from qgis.PyQt import QtCore, QtGui, QtSql
     try:
         self.layer = QgsProject.instance().mapLayersByName("sub (SWAT)")[0]
         provider = self.layer.dataProvider()

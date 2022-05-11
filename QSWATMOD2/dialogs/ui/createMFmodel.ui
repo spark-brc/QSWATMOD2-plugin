@@ -31,8 +31,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>567</width>
-        <height>925</height>
+        <width>573</width>
+        <height>948</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -502,6 +502,15 @@
                      </color>
                     </brush>
                    </colorrole>
+                   <colorrole role="PlaceholderText">
+                    <brush brushstyle="NoBrush">
+                     <color alpha="128">
+                      <red>0</red>
+                      <green>85</green>
+                      <blue>255</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
                   </active>
                   <inactive>
                    <colorrole role="WindowText">
@@ -525,6 +534,15 @@
                    <colorrole role="ToolTipText">
                     <brush brushstyle="SolidPattern">
                      <color alpha="255">
+                      <red>0</red>
+                      <green>85</green>
+                      <blue>255</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
+                   <colorrole role="PlaceholderText">
+                    <brush brushstyle="NoBrush">
+                     <color alpha="128">
                       <red>0</red>
                       <green>85</green>
                       <blue>255</blue>
@@ -560,12 +578,23 @@
                      </color>
                     </brush>
                    </colorrole>
+                   <colorrole role="PlaceholderText">
+                    <brush brushstyle="NoBrush">
+                     <color alpha="128">
+                      <red>0</red>
+                      <green>85</green>
+                      <blue>255</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
                   </disabled>
                  </palette>
                 </property>
                 <property name="font">
                  <font>
                   <pointsize>4</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
                  </font>
                 </property>
                 <property name="frameShape">
@@ -771,6 +800,35 @@
                 </property>
                 <property name="text">
                  <string>0.1</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="label_20">
+                <property name="font">
+                 <font>
+                  <weight>50</weight>
+                  <bold>false</bold>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Depth to River Bottom</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QLineEdit" name="lineEdit_dtRb">
+                <property name="font">
+                 <font>
+                  <weight>50</weight>
+                  <bold>false</bold>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>1.0</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
