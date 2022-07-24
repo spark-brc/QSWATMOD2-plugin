@@ -29,7 +29,6 @@ from QSWATMOD2.modules import shapefile_sm
 #     msgBox.setText("Please, restart QGIS to initialize QSWATMOD2 properly.")
 #     msgBox.exec_()
 
-# interesting ...
 def read_mf_gwsw_dates(self):
     if self.dlg.groupBox_gwsw.isChecked():
         QSWATMOD_path_dict = self.dirs_and_paths()
