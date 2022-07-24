@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from builtins import str
+from builtins import int
 from qgis.core import QgsProject              
 import datetime
 import matplotlib.pyplot as plt
@@ -30,14 +31,16 @@ def read_grid_id(self):
             feats = self.layer.getFeatures()
 
             # get grid_id as a list
-            unsorted_grid_id = [str(f.attribute("grid_id")) for f in feats]
+            unsorted_grid_id = [int(f.attribute("grid_id")) for f in feats]
 
             # Sort this list
-            sorted_grid_id = sorted(unsorted_grid_id, key = int)
+            sorted_grid_id = sorted(unsorted_grid_id, key=int)
+            str_sorted_grid_id = [str(i) for i in sorted_grid_id]
+            
             # a = sorted(a, key=lambda x: float(x))
             self.dlg.comboBox_grid_id.clear()
             # self.dlg.comboBox_sub_number.addItem('')
-            self.dlg.comboBox_grid_id.addItems(sorted_grid_id) # in addItem list should contain string numbers
+            self.dlg.comboBox_grid_id.addItems(str_sorted_grid_id) # in addItem list should contain string numbers
         else:
             self.dlg.groupBox_plot_wt.setEnabled(False)
 
@@ -94,30 +97,31 @@ def wt_plot_daily(self):
     mf_obs = pd.read_csv(
                         os.path.join(wd, "modflow.obs"),
                         delim_whitespace=True,
-                        skiprows = 2,
-                        usecols = [3, 4],
-                        index_col = 0,
+                        skiprows=2,
+                        usecols=[3, 4],
+                        index_col=0,
                         names = ["grid_id", "mf_elev"],)
 
     # Convert dataframe into a list with string items inside list
     grid_id_lst = mf_obs.index.astype(str).values.tolist()
     grid_id = self.dlg.comboBox_grid_id.currentText()
 
-    fig, ax = plt.subplots(figsize = (9,4))
+    fig, ax = plt.subplots(figsize = (9, 4))
     ax.tick_params(axis='both', labelsize=8)
     if self.dlg.checkBox_wt_obd.isChecked():
         wtObd = pd.read_csv(
                             os.path.join(wd, "modflow.obd"),
                             sep='\s+',
-                            index_col = 0,
-                            header = 0,
+                            index_col=0,
+                            header=0,
                             parse_dates=True,
-                            delimiter = "\t")
+                            na_values=[-999, ""],
+                            delimiter="\t")
         output_wt = pd.read_csv(
                             os.path.join(wd, "swatmf_out_MF_obs"),
                             delim_whitespace=True,
-                            skiprows = 1,
-                            names = grid_id_lst,)
+                            skiprows=1,
+                            names=grid_id_lst,)
         
         # get observed watertable
         wt_ob = self.dlg.comboBox_wt_obs_data.currentText()
@@ -283,11 +287,12 @@ def wt_plot_monthly(self):
 
     if self.dlg.checkBox_wt_obd.isChecked():
         wtObd = pd.read_csv(os.path.join(wd, "modflow.obd"),
-                                sep = '\s+',
+                                delim_whitespace=True,
                                 index_col = 0,
                                 header = 0,
                                 parse_dates=True,
-                                delimiter = "\t")
+                                # delimiter = "\t"
+                                )
 
         output_wt = pd.read_csv(os.path.join(wd, "swatmf_out_MF_obs"),
                            delim_whitespace=True,
@@ -629,7 +634,7 @@ def export_wt_daily(self):
 
     # Add info
     from datetime import datetime
-    version = "version 2.0."
+    version = "version 2.2."
     time = datetime.now().strftime('- %m/%d/%y %H:%M:%S -')
 
     mf_obs = pd.read_csv(
@@ -836,7 +841,7 @@ def export_wt_monthly(self):
 
     # Add info
     from datetime import datetime
-    version = "version 2.0."
+    version = "version 2.2."
     time = datetime.now().strftime('- %m/%d/%y %H:%M:%S -')
 
     mf_obs = pd.read_csv(os.path.join(wd, "modflow.obs"),
@@ -1042,7 +1047,7 @@ def export_wt_annual(self):
 
     # Add info
     from datetime import datetime
-    version = "version 2.0."
+    version = "version 2.2."
     time = datetime.now().strftime('- %m/%d/%y %H:%M:%S -')
 
     mf_obs = pd.read_csv(os.path.join(wd, "modflow.obs"),

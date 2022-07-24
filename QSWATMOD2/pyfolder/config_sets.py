@@ -269,7 +269,7 @@ def create_irrig_mf(self):
     out_file = os.path.join(out_dir, name)
 
     # Add info
-    version = "version 2.0 "
+    version = "version 2.2 "
     time = datetime.datetime.now().strftime('- %m/%d/%y %H:%M:%S -')
 
     # User inputs ===========================================================================
@@ -423,7 +423,7 @@ def create_drain2sub(self):
     out_file = os.path.join(out_dir, name)
 
     # Add info
-    version = "version 2.0 "
+    version = "version 2.2 "
     time = datetime.datetime.now().strftime('- %m/%d/%y %H:%M:%S -')
 
     # User inputs ===========================================================================
@@ -670,7 +670,7 @@ def write_irrig_swat(self):
     out_file = os.path.join(out_dir, name)
 
     # Add info
-    version = "version 2.0 "
+    version = "version 2.2 "
     time = datetime.datetime.now().strftime('- %m/%d/%y %H:%M:%S -')
 
     # User inputs ===========================================================================
@@ -703,7 +703,7 @@ def modify_wel(self):
     nWel_swat = layer.featureCount()
 
     # Modify an exsiting Wel file
-    version = "version 2.0."
+    version = "version 2.2."
     time = datetime.datetime.now().strftime(' - %m/%d/%y %H:%M:%S -')
 
     if any(inFile.endswith('.wel') for inFile in os.listdir(wd)):

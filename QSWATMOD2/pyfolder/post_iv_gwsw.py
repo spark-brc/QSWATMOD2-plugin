@@ -701,7 +701,7 @@ def export_gwsw(self):
     df = f_c.drop(['x_max', 'y_max'], axis=1)
 
     # Add info
-    version = "version 2.0."
+    version = "version 2.2."
     time = datetime.datetime.now().strftime('- %m/%d/%y %H:%M:%S -')
 
     # msgBox = QMessageBox()
