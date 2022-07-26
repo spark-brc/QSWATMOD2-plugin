@@ -58,6 +58,7 @@ from .QSWATMOD_dialog import QSWATMODDialog
 from .dialogs import createMFmodel_dialog
 from .dialogs.createMFmodel_dialog import createMFmodelDialog # from folder.file import class
 from .dialogs import help_dialog
+from .dialogs import create_rt3d_dlg
 
 # import sub functions from pyfolder -----------------------------------#
 from .pyfolder import db_functions
@@ -266,6 +267,9 @@ class QSWATMOD2(object):
         # Second Tab
         self.dlg.groupBox_threshold.toggled.connect(self.thres_dhru)
         self.dlg.horizontalSlider_ol_area.valueChanged.connect(self.thres_dhru_value)
+        # Open rt3d ui
+        self.dlg.pushButton_open_rt3d_ui.clicked.connect(self.openRT3Dui)
+        
         # Third Tab
         self.dlg.checkBox_mf_obs.toggled.connect(self.check_mf_obs)
         self.dlg.radioButton_irrig_act.toggled.connect(self.irr_mf)
@@ -1794,7 +1798,8 @@ class QSWATMOD2(object):
     def run_SM(self):
         import subprocess
         output_dir = QSWATMOD_path_dict['SMfolder']
-        name = "SWAT-MODFLOW3.exe"
+        # name = "SWAT-MODFLOW3.exe"
+        name = "swatmf_rev210621.exe"
         exe_file = os.path.normpath(os.path.join(output_dir, name ))
 
         # os.startfile(File_Physical)
@@ -1967,3 +1972,11 @@ class QSWATMOD2(object):
     def cvt_vtr(self):
         post_vii_nitrate.cvt_vtr(self)
 # ---
+
+
+    # put another ui in main ui
+    def openRT3Dui(self):
+        linking_process.create_rt3d_grid(self)
+        self.rt3d = create_rt3d_dlg.CreateRT3D(self.iface)
+        self.rt3d.show()
+        self.rt3d.exec_()

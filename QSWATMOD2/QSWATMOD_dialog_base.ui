@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>670</width>
+    <width>702</width>
     <height>750</height>
    </rect>
   </property>
@@ -45,7 +45,7 @@
       <bool>true</bool>
      </property>
      <property name="currentIndex">
-      <number>3</number>
+      <number>4</number>
      </property>
      <widget class="QWidget" name="General">
       <attribute name="title">
@@ -85,7 +85,7 @@
             <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'AdvTT6120e2aa,serif'; font-size:9pt;&quot;&gt;    The coupled QSWATMOD2 framework developed in this study combines the updated SWAT 2012 model (Revision 591) with MODFLOW-NWT. Within the framework, SWAT simulates land surface processes, crop growth, in-stream processes and soil zone processes, whereas MODFLOW-NWT simulates three-dimensional groundwater &lt;/span&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;fl&lt;/span&gt;&lt;span style=&quot; font-family:'AdvTT6120e2aa,serif'; font-size:9pt;&quot;&gt;ow and all associated sources and sinks (e.g. recharge, pumping, discharge to tile drains and interaction with stream network).&lt;/span&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-family:'AdvTT6120e2aa,serif'; font-size:9pt;&quot;&gt;The basic process of linking the SWAT and MODFLOW models is to pass HRU-calculated deep percolation (i.e. water that exits the bottom of the soil pro&lt;/span&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;fi&lt;/span&gt;&lt;span style=&quot; font-family:'AdvTT6120e2aa,serif'; font-size:9pt;&quot;&gt;le) as recharge to the grid cells of MODFLOW, and then pass MODFLOW-calculated groundwater–surface water interaction fluxes to the stream channels of SWAT.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
           </widget>
@@ -342,9 +342,9 @@ p, li { white-space: pre-wrap; }
           <property name="geometry">
            <rect>
             <x>0</x>
-            <y>0</y>
-            <width>609</width>
-            <height>534</height>
+            <y>-373</y>
+            <width>659</width>
+            <height>734</height>
            </rect>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -399,6 +399,7 @@ p, li { white-space: pre-wrap; }
                <widget class="QPushButton" name="pushButton_TxtInOut">
                 <property name="font">
                  <font>
+                  <pointsize>8</pointsize>
                   <weight>50</weight>
                   <italic>false</italic>
                   <bold>false</bold>
@@ -437,6 +438,7 @@ p, li { white-space: pre-wrap; }
                <widget class="QPushButton" name="pushButton_subbasin_shapefile">
                 <property name="font">
                  <font>
+                  <pointsize>8</pointsize>
                   <weight>50</weight>
                   <italic>false</italic>
                   <bold>false</bold>
@@ -475,6 +477,7 @@ p, li { white-space: pre-wrap; }
                <widget class="QPushButton" name="pushButton_river_shapefile">
                 <property name="font">
                  <font>
+                  <pointsize>8</pointsize>
                   <weight>50</weight>
                   <italic>false</italic>
                   <bold>false</bold>
@@ -499,6 +502,7 @@ p, li { white-space: pre-wrap; }
                <widget class="QPushButton" name="pushButton_hru_shapefile">
                 <property name="font">
                  <font>
+                  <pointsize>8</pointsize>
                   <weight>50</weight>
                   <italic>false</italic>
                   <bold>false</bold>
@@ -598,6 +602,7 @@ p, li { white-space: pre-wrap; }
                  <widget class="QLabel" name="label_20">
                   <property name="font">
                    <font>
+                    <pointsize>8</pointsize>
                     <weight>50</weight>
                     <bold>false</bold>
                    </font>
@@ -614,6 +619,7 @@ p, li { white-space: pre-wrap; }
                  <widget class="QPushButton" name="pushButton_MODFLOWfile">
                   <property name="font">
                    <font>
+                    <pointsize>8</pointsize>
                     <weight>50</weight>
                     <bold>false</bold>
                    </font>
@@ -640,6 +646,7 @@ p, li { white-space: pre-wrap; }
                   </property>
                   <property name="font">
                    <font>
+                    <pointsize>8</pointsize>
                     <weight>50</weight>
                     <bold>false</bold>
                    </font>
@@ -723,6 +730,7 @@ p, li { white-space: pre-wrap; }
                      </property>
                      <property name="font">
                       <font>
+                       <pointsize>8</pointsize>
                        <weight>50</weight>
                        <italic>false</italic>
                        <bold>false</bold>
@@ -743,6 +751,7 @@ p, li { white-space: pre-wrap; }
                  <widget class="QgsCollapsibleGroupBox" name="mf_option_2">
                   <property name="font">
                    <font>
+                    <pointsize>8</pointsize>
                     <weight>50</weight>
                     <bold>false</bold>
                    </font>
@@ -949,7 +958,10 @@ p, li { white-space: pre-wrap; }
                              <widget class="QCheckBox" name="checkBox_default_extent">
                               <property name="font">
                                <font>
+                                <pointsize>8</pointsize>
+                                <weight>50</weight>
                                 <italic>false</italic>
+                                <bold>false</bold>
                                </font>
                               </property>
                               <property name="text">
@@ -1018,11 +1030,12 @@ p, li { white-space: pre-wrap; }
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
-                    <height>20</height>
+                    <height>16777215</height>
                    </size>
                   </property>
                   <property name="font">
                    <font>
+                    <pointsize>8</pointsize>
                     <weight>50</weight>
                     <bold>false</bold>
                    </font>
@@ -1031,7 +1044,7 @@ p, li { white-space: pre-wrap; }
                    <bool>true</bool>
                   </property>
                   <property name="title">
-                   <string>Option 3: MODFLOW model (✖) |  MODFLOW grid shapefile (✖)  |  RT3D input files (✖)</string>
+                   <string>Option 3: MODFLOW model (✖) |  MODFLOW grid shapefile (✖)</string>
                   </property>
                   <property name="flat">
                    <bool>true</bool>
@@ -1043,7 +1056,7 @@ p, li { white-space: pre-wrap; }
                    <bool>false</bool>
                   </property>
                   <property name="collapsed">
-                   <bool>true</bool>
+                   <bool>false</bool>
                   </property>
                   <property name="saveCollapsedState">
                    <bool>false</bool>
@@ -1100,58 +1113,6 @@ p, li { white-space: pre-wrap; }
                     </widget>
                    </item>
                    <item>
-                    <widget class="Line" name="line_6">
-                     <property name="frameShadow">
-                      <enum>QFrame::Plain</enum>
-                     </property>
-                     <property name="orientation">
-                      <enum>Qt::Vertical</enum>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <layout class="QHBoxLayout" name="horizontalLayout_51">
-                     <property name="spacing">
-                      <number>0</number>
-                     </property>
-                     <property name="rightMargin">
-                      <number>0</number>
-                     </property>
-                     <item>
-                      <widget class="QLabel" name="label_26">
-                       <property name="enabled">
-                        <bool>false</bool>
-                       </property>
-                       <property name="text">
-                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-family:'Webdings'; font-size:12pt;&quot;&gt;Ï&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QPushButton" name="pushButton_2">
-                       <property name="enabled">
-                        <bool>false</bool>
-                       </property>
-                       <property name="minimumSize">
-                        <size>
-                         <width>200</width>
-                         <height>0</height>
-                        </size>
-                       </property>
-                       <property name="text">
-                        <string>Write RT3D input files</string>
-                       </property>
-                       <property name="checkable">
-                        <bool>true</bool>
-                       </property>
-                       <property name="checked">
-                        <bool>false</bool>
-                       </property>
-                      </widget>
-                     </item>
-                    </layout>
-                   </item>
-                   <item>
                     <spacer name="horizontalSpacer_3">
                      <property name="orientation">
                       <enum>Qt::Horizontal</enum>
@@ -1168,7 +1129,6 @@ p, li { white-space: pre-wrap; }
                   <zorder>pushButton_createMFmodel</zorder>
                   <zorder>horizontalSpacer_2</zorder>
                   <zorder>horizontalSpacer_3</zorder>
-                  <zorder>line_6</zorder>
                  </widget>
                 </item>
                </layout>
@@ -1177,6 +1137,7 @@ p, li { white-space: pre-wrap; }
                <widget class="QGroupBox" name="groupBox_river_cells">
                 <property name="font">
                  <font>
+                  <pointsize>8</pointsize>
                   <weight>50</weight>
                   <bold>false</bold>
                  </font>
@@ -1223,6 +1184,7 @@ p, li { white-space: pre-wrap; }
                       <widget class="QRadioButton" name="radioButton_mf_riv1">
                        <property name="font">
                         <font>
+                         <pointsize>8</pointsize>
                          <weight>50</weight>
                          <bold>false</bold>
                         </font>
@@ -1295,6 +1257,7 @@ p, li { white-space: pre-wrap; }
                       <widget class="QRadioButton" name="radioButton_mf_riv2">
                        <property name="font">
                         <font>
+                         <pointsize>8</pointsize>
                          <weight>50</weight>
                          <bold>false</bold>
                         </font>
@@ -1308,6 +1271,7 @@ p, li { white-space: pre-wrap; }
                       <widget class="QRadioButton" name="radioButton_mf_riv3">
                        <property name="font">
                         <font>
+                         <pointsize>8</pointsize>
                          <weight>50</weight>
                          <bold>false</bold>
                         </font>
@@ -1493,11 +1457,12 @@ Create &quot;river_grid&quot; shapefile</string>
                 <property name="maximumSize">
                  <size>
                   <width>16777215</width>
-                  <height>20</height>
+                  <height>22</height>
                  </size>
                 </property>
                 <property name="font">
                  <font>
+                  <pointsize>8</pointsize>
                   <weight>50</weight>
                   <bold>false</bold>
                  </font>
@@ -1627,6 +1592,7 @@ Create &quot;river_grid&quot; shapefile</string>
                         </property>
                         <property name="font">
                          <font>
+                          <pointsize>8</pointsize>
                           <weight>50</weight>
                           <bold>false</bold>
                          </font>
@@ -1863,6 +1829,84 @@ Create &quot;river_grid&quot; shapefile</string>
             </widget>
            </item>
            <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_64">
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <widget class="QGroupBox" name="groupBox_12">
+               <property name="font">
+                <font>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="title">
+                <string>Create RT3D Inputs</string>
+               </property>
+               <property name="checkable">
+                <bool>true</bool>
+               </property>
+               <property name="checked">
+                <bool>false</bool>
+               </property>
+               <layout class="QHBoxLayout" name="horizontalLayout_66">
+                <item>
+                 <widget class="QPushButton" name="pushButton_open_rt3d_ui">
+                  <property name="font">
+                   <font>
+                    <weight>50</weight>
+                    <bold>false</bold>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>Open RT3D UI</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <widget class="QGroupBox" name="groupBox_13">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="font">
+                <font>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="title">
+                <string>Create Salinity Module Inputs</string>
+               </property>
+               <property name="checkable">
+                <bool>true</bool>
+               </property>
+               <property name="checked">
+                <bool>false</bool>
+               </property>
+               <layout class="QHBoxLayout" name="horizontalLayout_72">
+                <item>
+                 <widget class="QPushButton" name="pushButton_3">
+                  <property name="font">
+                   <font>
+                    <weight>50</weight>
+                    <bold>false</bold>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>Open Salinity UI</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
             <spacer name="verticalSpacer_7">
              <property name="orientation">
               <enum>Qt::Vertical</enum>
@@ -2002,7 +2046,7 @@ linkage files</string>
             <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
           </widget>
@@ -2147,8 +2191,8 @@ p, li { white-space: pre-wrap; }
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>609</width>
-            <height>597</height>
+            <width>639</width>
+            <height>694</height>
            </rect>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_15">
@@ -3925,9 +3969,9 @@ SWAT-MODFLOW Simulation</string>
           <property name="geometry">
            <rect>
             <x>0</x>
-            <y>0</y>
-            <width>609</width>
-            <height>745</height>
+            <y>-238</y>
+            <width>700</width>
+            <height>830</height>
            </rect>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_43">
@@ -5953,7 +5997,7 @@ SWAT-MODFLOW Simulation</string>
                       </font>
                      </property>
                      <property name="title">
-                      <string>Not activatable in this version 2.2</string>
+                      <string>Not activatable in this version 2.0</string>
                      </property>
                      <property name="checkable">
                       <bool>false</bool>
@@ -6525,7 +6569,7 @@ SWAT-MODFLOW Simulation</string>
      </widget>
      <widget class="QWidget" name="tab_5">
       <attribute name="title">
-       <string>RT3D</string>
+       <string>Solute Transport</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_37">
        <item>
@@ -6538,8 +6582,8 @@ SWAT-MODFLOW Simulation</string>
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>626</width>
-            <height>634</height>
+            <width>709</width>
+            <height>592</height>
            </rect>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_54">
@@ -6555,7 +6599,7 @@ SWAT-MODFLOW Simulation</string>
                 </font>
                </property>
                <property name="text">
-                <string>Visualize RT3D Results</string>
+                <string>Visualize Water Quality Results</string>
                </property>
               </widget>
              </item>
@@ -6591,7 +6635,7 @@ SWAT-MODFLOW Simulation</string>
               </font>
              </property>
              <property name="title">
-              <string>Export RT3D Nitrate / Phosphorus Concentration (mg/L)</string>
+              <string>Solute Concentration in Aquifer (mg/L)</string>
              </property>
              <property name="checkable">
               <bool>true</bool>
@@ -6624,6 +6668,7 @@ SWAT-MODFLOW Simulation</string>
                    <font>
                     <weight>50</weight>
                     <bold>false</bold>
+                    <kerning>false</kerning>
                    </font>
                   </property>
                   <property name="text">
@@ -6646,6 +6691,7 @@ SWAT-MODFLOW Simulation</string>
                    <font>
                     <weight>50</weight>
                     <bold>false</bold>
+                    <kerning>false</kerning>
                    </font>
                   </property>
                   <property name="text">
@@ -6685,6 +6731,7 @@ SWAT-MODFLOW Simulation</string>
                    <font>
                     <weight>50</weight>
                     <bold>false</bold>
+                    <kerning>false</kerning>
                    </font>
                   </property>
                   <property name="text">
@@ -6704,6 +6751,7 @@ SWAT-MODFLOW Simulation</string>
                    <font>
                     <weight>50</weight>
                     <bold>false</bold>
+                    <kerning>false</kerning>
                    </font>
                   </property>
                   <property name="text">
@@ -6723,6 +6771,7 @@ SWAT-MODFLOW Simulation</string>
                    <font>
                     <weight>50</weight>
                     <bold>false</bold>
+                    <kerning>false</kerning>
                    </font>
                   </property>
                   <property name="text">
@@ -6743,6 +6792,7 @@ SWAT-MODFLOW Simulation</string>
                    <font>
                     <weight>50</weight>
                     <bold>false</bold>
+                    <kerning>false</kerning>
                    </font>
                   </property>
                   <property name="title">
@@ -6770,6 +6820,7 @@ SWAT-MODFLOW Simulation</string>
                       <font>
                        <weight>50</weight>
                        <bold>false</bold>
+                       <kerning>false</kerning>
                       </font>
                      </property>
                      <property name="text">
@@ -6789,6 +6840,7 @@ SWAT-MODFLOW Simulation</string>
                    <font>
                     <weight>50</weight>
                     <bold>false</bold>
+                    <kerning>false</kerning>
                    </font>
                   </property>
                   <property name="title">
@@ -6944,6 +6996,7 @@ SWAT-MODFLOW Simulation</string>
                    <font>
                     <weight>50</weight>
                     <bold>false</bold>
+                    <kerning>false</kerning>
                    </font>
                   </property>
                   <property name="text">
@@ -6968,6 +7021,7 @@ SWAT-MODFLOW Simulation</string>
                      <font>
                       <weight>50</weight>
                       <bold>false</bold>
+                      <kerning>false</kerning>
                      </font>
                     </property>
                     <property name="value">
@@ -6987,6 +7041,7 @@ SWAT-MODFLOW Simulation</string>
                      <font>
                       <weight>50</weight>
                       <bold>false</bold>
+                      <kerning>false</kerning>
                      </font>
                     </property>
                     <property name="value">
@@ -7520,16 +7575,16 @@ SWAT-MODFLOW Simulation</string>
   </connection>
  </connections>
  <buttongroups>
-  <buttongroup name="buttonGroup_irrig_swat_active"/>
+  <buttongroup name="buttonGroup_gw_delay"/>
+  <buttongroup name="buttonGroup_rt3d_map"/>
+  <buttongroup name="buttonGroup_str_obd"/>
+  <buttongroup name="buttonGroup_mf_active"/>
+  <buttongroup name="buttonGroup_drain_active"/>
   <buttongroup name="buttonGroup_RT3D_active"/>
   <buttongroup name="buttonGroup_wt_obd"/>
   <buttongroup name="buttonGroup_head_recharge"/>
-  <buttongroup name="buttonGroup_mf_active"/>
-  <buttongroup name="buttonGroup_str_obd"/>
-  <buttongroup name="buttonGroup_drain_active"/>
   <buttongroup name="buttonGroup_irrig_active"/>
-  <buttongroup name="buttonGroup_rt3d_map"/>
-  <buttongroup name="buttonGroup_gw_delay"/>
   <buttongroup name="buttonGroup_mf_swat"/>
+  <buttongroup name="buttonGroup_irrig_swat_active"/>
  </buttongroups>
 </ui>

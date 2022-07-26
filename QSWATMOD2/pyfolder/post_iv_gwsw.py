@@ -29,6 +29,7 @@ from QSWATMOD2.modules import shapefile_sm
 #     msgBox.setText("Please, restart QGIS to initialize QSWATMOD2 properly.")
 #     msgBox.exec_()
 
+
 def read_mf_gwsw_dates(self):
     if self.dlg.groupBox_gwsw.isChecked():
         QSWATMOD_path_dict = self.dirs_and_paths()
@@ -700,7 +701,7 @@ def export_gwsw(self):
     df = f_c.drop(['x_max', 'y_max'], axis=1)
 
     # Add info
-    version = "version 2.2."
+    version = "version 2.0."
     time = datetime.datetime.now().strftime('- %m/%d/%y %H:%M:%S -')
 
     # msgBox = QMessageBox()

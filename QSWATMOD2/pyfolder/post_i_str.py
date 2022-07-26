@@ -711,7 +711,7 @@ def export_sd_daily(self):
 
     # Add info
     from datetime import datetime
-    version = "version 2.2."
+    version = "version 2.0."
     time = datetime.now().strftime('- %m/%d/%y %H:%M:%S -')
 
     if self.dlg.checkBox_stream_obd.isChecked():
@@ -878,7 +878,7 @@ def export_sd_monthly(self):
 
     # Add info
     from datetime import datetime
-    version = "version 2.2."
+    version = "version 2.0."
     time = datetime.now().strftime('- %m/%d/%y %H:%M:%S -')
 
     if self.dlg.checkBox_stream_obd.isChecked():
@@ -1004,7 +1004,7 @@ def export_sd_mTa(self):
 
     # Add info
     from datetime import datetime
-    version = "version 2.2."
+    version = "version 2.0."
     time = datetime.now().strftime('- %m/%d/%y %H:%M:%S -')
 
     if self.dlg.checkBox_stream_obd.isChecked():
@@ -1129,7 +1129,7 @@ def export_sd_annual(self):
 
     # Add info
     from datetime import datetime
-    version = "version 2.2."
+    version = "version 2.0."
     time = datetime.now().strftime('- %m/%d/%y %H:%M:%S -')
 
     if self.dlg.checkBox_stream_obd.isChecked():
@@ -1275,7 +1275,7 @@ def load_mf_obd(self):
         path = str(settings.value('/QSWATMOD2/LastInputPath'))
     else:
         path = ''
-    title = "Provide '*.obd' file!"
+    title = "Provide 'modflow.obd' file!"
     inFileName, __ = QFileDialog.getOpenFileNames(
         None, title, path,
         "Observation data (*.obd *.OBD);; All files (*.*)"

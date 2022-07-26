@@ -103,8 +103,8 @@ def read_mf_nitrate_dates(self):
         self.dlg.comboBox_rt_results_edate.addItems(dateList)
         self.dlg.comboBox_rt_results_edate.setCurrentIndex(len(dateList)-1)
         # Copy mf_grid shapefile to swatmf_results tree
-        name = "mf_nitrate_monthly"
-        name_ext = "mf_nitrate_monthly.shp"
+        name = "rt_nitrate_mon"
+        name_ext = "rt_nitrate_mon.shp"
         output_dir = QSWATMOD_path_dict['SMshps']
         # Check if there is an exsting mf_head shapefile
         if not any(lyr.name() == (name) for lyr in list(QgsProject.instance().mapLayers().values())):
@@ -121,7 +121,7 @@ def read_mf_nitrate_dates(self):
             msgBox = QMessageBox()
             msgBox.setWindowIcon(QtGui.QIcon(':/QSWATMOD2/pics/sm_icon.png'))
             msgBox.setWindowTitle("Created!")
-            msgBox.setText("'mf_nitrate_monthly.shp' file has been created in 'swatmf_results' group!")
+            msgBox.setText("'rt_nitrate_mon.shp' file has been created in 'swatmf_results' group!")
             msgBox.exec_()
     elif self.dlg.checkBox_head.isChecked() and self.dlg.radioButton_mf_rt3d_y.isChecked():
         filename = "swatmf_out_RT_cno3_yearly"
@@ -182,7 +182,7 @@ def export_rt_cno3(self):
     #     dateList = [(sdate + datetime.timedelta(days = int(i)-1)).strftime("%m-%d-%Y") for i in onlyDate]
     if self.dlg.radioButton_mf_rt3d_m.isChecked():
         filename = "swatmf_out_RT_cno3_monthly"
-        self.layer = QgsProject.instance().mapLayersByName("rt_nitrate_monthly")[0]
+        self.layer = QgsProject.instance().mapLayersByName("rt_nitrate_mon")[0]
         with open(os.path.join(wd, filename), "r") as f:
             data = [x.strip() for x in f if x.strip() and not x.strip().startswith(y)] # Remove blank lines     
         date = [x.strip().split() for x in data if x.strip().startswith("month:")] # Collect only lines with dates  
@@ -191,7 +191,7 @@ def export_rt_cno3(self):
         dateList = pd.date_range(startDate, periods = len(onlyDate), freq = 'M').strftime("%b-%Y").tolist()
     elif self.dlg.radioButton_mf_results_y.isChecked():
         filename = "swatmf_out_MF_head_yearly"
-        self.layer = QgsProject.instance().mapLayersByName("rt_nitrate_yearly")[0]
+        self.layer = QgsProject.instance().mapLayersByName("rt_nitrate_yr")[0]
         with open(os.path.join(wd, filename), "r") as f:
             data = [x.strip() for x in f if x.strip() and not x.strip().startswith(y)] # Remove blank lines
         date = [x.strip().split() for x in data if x.strip().startswith("year:")] # Collect only lines with dates
@@ -308,7 +308,7 @@ def get_rt_cno3_avg_m_df(self):
     # Open "swatmf_out_MF_head" file
     y = ("Monthly", "Yearly") # Remove unnecssary lines
     filename = "swatmf_out_RT_cno3_monthly"
-    self.layer = QgsProject.instance().mapLayersByName("mf_nitrate_monthly")[0]
+    # self.layer = QgsProject.instance().mapLayersByName("mf_nitrate_monthly")[0]
     with open(os.path.join(wd, filename), "r") as f:
         data = [x.strip() for x in f if x.strip() and not x.strip().startswith(y)] # Remove blank lines     
     date = [x.strip().split() for x in data if x.strip().startswith("month:")] # Collect only lines with dates  
@@ -362,11 +362,11 @@ def get_rt_cno3_avg_m_df(self):
     big_df.index = pd.to_datetime(big_df.index)
     mbig_df = big_df.groupby(big_df.index.month).mean()
 
-    msgBox = QMessageBox()
-    msgBox.setWindowIcon(QtGui.QIcon(':/QSWATMOD2/pics/sm_icon.png'))
-    msgBox.setWindowTitle("Select!")
-    msgBox.setText("Please, select months then click EXPORT")
-    msgBox.exec_()
+    # msgBox = QMessageBox()
+    # msgBox.setWindowIcon(QtGui.QIcon(':/QSWATMOD2/pics/sm_icon.png'))
+    # msgBox.setWindowTitle("Select!")
+    # msgBox.setText("Please, select months then click EXPORT")
+    # msgBox.exec_()
 
 
     return mbig_df
@@ -482,11 +482,11 @@ def read_vector_maps(self):
                 'mf_rch_monthly',
                 'mf_rch_yearly',
                 'rt_nitrate_avg_mon',
-                'rt_nitrate_monthly',
-                'rt_nitrate_yearly',
+                'rt_nitrate_mon',
+                'rt_nitrate_yr',
                 'rt_phosphorus_avg_mon',
-                'rt_phosphorus_monthly',
-                'rt_phosphorus_yearly',
+                'rt_phosphorus_mon',
+                'rt_phosphorus_yr',
                 ]
     self.dlg.comboBox_vector_lyrs.clear()
     self.dlg.comboBox_vector_lyrs.addItems(available_layers)
@@ -662,9 +662,6 @@ def cvt_vtr(self):
     fimg, *fimgs = [Image.open(f) for f in sorted(glob.glob(fp_in))]
     fimg.save(fp=fp_out, format='GIF', append_images=fimgs,
             save_all=True, duration=duration*1000, loop=0, transparency=0)
-
-
-
     
     msgBox = QMessageBox()
     msgBox.setWindowIcon(QtGui.QIcon(':/QSWATMOD2/pics/sm_icon.png'))
