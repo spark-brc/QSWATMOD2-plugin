@@ -6,7 +6,7 @@
 
 This repository contains source codes and an executable for the new version of QSWATMOD.
 All other materials: example dataset and tutorial document can be downloaded from the old version of QSWATMOD repository.
-- **[Installer](https://github.com/spark-brc/QSWATMOD2/releases/download/v2.3.0/QSWATMOD2.exe):** QSWATMOD 2.3.exe
+- **[Installer](https://github.com/spark-brc/QSWATMOD2/releases/download/v2.3.0/QSWATMOD2.exe):** QSWATMOD.exe
 - **[Inputs](https://github.com/spark-brc/QSWATMOD2/tree/master/Inputs):** ExampleDataset.zip
 - **[Source Code](https://github.com/spark-brc/QSWATMOD2/tree/master/QSWATMOD2)**
 - **[QSWATMOD Tutorial Document](https://github.com/spark-brc/QSWATMOD2/releases/download/v2.0/QSWATMOD_tutorial.pdf)**
