@@ -753,3 +753,8 @@ def write_rt3d_inputs(self):
         f.write("'{}'			INRCT=5			Reaction Package\n".format(rt3d_name+'.rct'))
         f.write("'{}'			INGCG=6			Implicit Solver Package\n".format(rt3d_name+'.gcg'))
         f.write("'{}'		    OUTRES=10		Restart File\n".format(rt3d_name+'.restart'))
+    msgBox = QMessageBox()
+    msgBox.setWindowIcon(QIcon(':/QSWATMOD2/pics/sm_icon.png'))
+    msgBox.setWindowTitle("Created!")
+    msgBox.setText("RT3D model has been created!")
+    msgBox.exec_()

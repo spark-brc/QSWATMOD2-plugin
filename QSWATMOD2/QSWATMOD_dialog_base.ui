@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>702</width>
+    <width>789</width>
     <height>750</height>
    </rect>
   </property>
@@ -342,8 +342,8 @@ p, li { white-space: pre-wrap; }
           <property name="geometry">
            <rect>
             <x>0</x>
-            <y>-373</y>
-            <width>659</width>
+            <y>0</y>
+            <width>716</width>
             <height>734</height>
            </rect>
           </property>
@@ -2191,7 +2191,7 @@ p, li { white-space: pre-wrap; }
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>639</width>
+            <width>716</width>
             <height>694</height>
            </rect>
           </property>
@@ -3969,8 +3969,8 @@ SWAT-MODFLOW Simulation</string>
           <property name="geometry">
            <rect>
             <x>0</x>
-            <y>-238</y>
-            <width>700</width>
+            <y>0</y>
+            <width>716</width>
             <height>830</height>
            </rect>
           </property>
@@ -6582,8 +6582,8 @@ SWAT-MODFLOW Simulation</string>
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>709</width>
-            <height>592</height>
+            <width>737</width>
+            <height>613</height>
            </rect>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_54">
@@ -6626,16 +6626,9 @@ SWAT-MODFLOW Simulation</string>
             </layout>
            </item>
            <item>
-            <widget class="QGroupBox" name="groupBox_11">
-             <property name="font">
-              <font>
-               <weight>75</weight>
-               <bold>true</bold>
-               <kerning>false</kerning>
-              </font>
-             </property>
+            <widget class="QGroupBox" name="groupBox_14">
              <property name="title">
-              <string>Solute Concentration in Aquifer (mg/L)</string>
+              <string>Solute Percolation (kg/ha) and Concentration (mg/l)</string>
              </property>
              <property name="checkable">
               <bool>true</bool>
@@ -6643,12 +6636,32 @@ SWAT-MODFLOW Simulation</string>
              <property name="checked">
               <bool>false</bool>
              </property>
-             <layout class="QVBoxLayout" name="verticalLayout_55">
+             <layout class="QVBoxLayout" name="verticalLayout_56">
               <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_71">
+               <layout class="QHBoxLayout" name="horizontalLayout_51">
                 <property name="topMargin">
                  <number>10</number>
                 </property>
+                <item>
+                 <widget class="QRadioButton" name="radioButton_rt_perc">
+                  <property name="text">
+                   <string>Perc.</string>
+                  </property>
+                  <attribute name="buttonGroup">
+                   <string notr="true">buttonGroup_rt_perc_conc</string>
+                  </attribute>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QRadioButton" name="radioButton_rt_conc">
+                  <property name="text">
+                   <string>Conc.</string>
+                  </property>
+                  <attribute name="buttonGroup">
+                   <string notr="true">buttonGroup_rt_perc_conc</string>
+                  </attribute>
+                 </widget>
+                </item>
                 <item>
                  <widget class="QLabel" name="label_77">
                   <property name="text">
@@ -6657,50 +6670,7 @@ SWAT-MODFLOW Simulation</string>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QCheckBox" name="checkBox_nitrate">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="font">
-                   <font>
-                    <weight>50</weight>
-                    <bold>false</bold>
-                    <kerning>false</kerning>
-                   </font>
-                  </property>
-                  <property name="text">
-                   <string>Nitrate</string>
-                  </property>
-                  <attribute name="buttonGroup">
-                   <string notr="true">buttonGroup_rt3d_map</string>
-                  </attribute>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QCheckBox" name="checkBox_phos">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="font">
-                   <font>
-                    <weight>50</weight>
-                    <bold>false</bold>
-                    <kerning>false</kerning>
-                   </font>
-                  </property>
-                  <property name="text">
-                   <string>Phosporous</string>
-                  </property>
-                  <attribute name="buttonGroup">
-                   <string notr="true">buttonGroup_rt3d_map</string>
-                  </attribute>
-                 </widget>
+                 <widget class="QComboBox" name="comboBox"/>
                 </item>
                 <item>
                  <widget class="QLabel" name="label_78">
@@ -6708,9 +6678,6 @@ SWAT-MODFLOW Simulation</string>
                    <string>Layer:</string>
                   </property>
                  </widget>
-                </item>
-                <item>
-                 <widget class="QComboBox" name="comboBox_rt_layer"/>
                 </item>
                 <item>
                  <widget class="QLabel" name="label_79">
@@ -7050,6 +7017,84 @@ SWAT-MODFLOW Simulation</string>
                    </widget>
                   </item>
                  </layout>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="groupBox_11">
+             <property name="font">
+              <font>
+               <weight>75</weight>
+               <bold>true</bold>
+               <kerning>false</kerning>
+              </font>
+             </property>
+             <property name="title">
+              <string>Solute Concentration in Aquifer (mg/L)</string>
+             </property>
+             <property name="checkable">
+              <bool>true</bool>
+             </property>
+             <property name="checked">
+              <bool>false</bool>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_55">
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_71">
+                <property name="topMargin">
+                 <number>10</number>
+                </property>
+                <item>
+                 <widget class="QCheckBox" name="checkBox_nitrate">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <weight>50</weight>
+                    <bold>false</bold>
+                    <kerning>false</kerning>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>Nitrate</string>
+                  </property>
+                  <attribute name="buttonGroup">
+                   <string notr="true">buttonGroup_rt3d_map</string>
+                  </attribute>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="checkBox_phos">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <weight>50</weight>
+                    <bold>false</bold>
+                    <kerning>false</kerning>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>Phosporous</string>
+                  </property>
+                  <attribute name="buttonGroup">
+                   <string notr="true">buttonGroup_rt3d_map</string>
+                  </attribute>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="comboBox_rt_layer"/>
                 </item>
                </layout>
               </item>
@@ -7540,6 +7585,9 @@ SWAT-MODFLOW Simulation</string>
    <header>qgscolorbutton.h</header>
   </customwidget>
  </customwidgets>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>button_box</sender>
@@ -7575,16 +7623,17 @@ SWAT-MODFLOW Simulation</string>
   </connection>
  </connections>
  <buttongroups>
-  <buttongroup name="buttonGroup_gw_delay"/>
-  <buttongroup name="buttonGroup_rt3d_map"/>
-  <buttongroup name="buttonGroup_str_obd"/>
-  <buttongroup name="buttonGroup_mf_active"/>
+  <buttongroup name="buttonGroup_irrig_active"/>
   <buttongroup name="buttonGroup_drain_active"/>
   <buttongroup name="buttonGroup_RT3D_active"/>
   <buttongroup name="buttonGroup_wt_obd"/>
-  <buttongroup name="buttonGroup_head_recharge"/>
-  <buttongroup name="buttonGroup_irrig_active"/>
   <buttongroup name="buttonGroup_mf_swat"/>
+  <buttongroup name="buttonGroup_rt3d_map"/>
+  <buttongroup name="buttonGroup_head_recharge"/>
   <buttongroup name="buttonGroup_irrig_swat_active"/>
+  <buttongroup name="buttonGroup_gw_delay"/>
+  <buttongroup name="buttonGroup_str_obd"/>
+  <buttongroup name="buttonGroup_mf_active"/>
+  <buttongroup name="buttonGroup_rt_perc_conc"/>
  </buttongroups>
 </ui>

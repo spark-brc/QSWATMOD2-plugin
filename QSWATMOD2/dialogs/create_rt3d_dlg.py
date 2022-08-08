@@ -124,8 +124,6 @@ class CreateRT3D(QDialog, FORM_CLASS):
         write_rt3d.write_rt3d_inputs(self)
 
 
-
-
     # NOTE: QUESTIONS!! Is this function should be here too? ######
     def dirs_and_paths(self):
         global QSWATMOD_path_dict
