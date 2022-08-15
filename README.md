@@ -6,7 +6,7 @@
 
 This repository contains source codes and an executable for the new version of QSWATMOD.
 All other materials: example dataset and tutorial document can be downloaded from the old version of QSWATMOD repository.
-- **[Installer](https://github.com/spark-brc/QSWATMOD2/blob/main/Installer/QSWATMOD2.exe):** QSWATMOD.exe
+- **[Installer](https://github.com/spark-brc/QSWATMOD2/raw/main/Installer/QSWATMOD2.exe):** QSWATMOD.exe
 - **[Inputs](https://github.com/spark-brc/QSWATMOD2/tree/master/Inputs):** ExampleDataset.zip
 - **[Source Code](https://github.com/spark-brc/QSWATMOD2/tree/master/QSWATMOD2)**
 - **[QSWATMOD Tutorial Document](https://github.com/spark-brc/QSWATMOD2/blob/main/docs/QSWATMOD_tutorial.pdf)**
@@ -17,7 +17,7 @@ All other materials: example dataset and tutorial document can be downloaded fro
 The QGIS3 software must be installed on the system prior to the installation of QSWATMOD2. We've tested QSWATMOD2 with the "latest release" (3.22.x) and  “long term release (LTR)” (3.10.4 ~ 3.22.6) versions of QGIS3 (Long term version recommended).
 
 - Install one of the versions of QGIS. It can be downloaded from https://qgis.org/en/site/forusers/download.html.
-- Download [the QSWATMOD installer](https://github.com/spark-brc/QSWATMOD2/blob/main/Installer/QSWATMOD2.exe) and install it by running QSWATMOD 2.0.exe or a later version. The QSWATMOD2 is installed into the user's home directory *(~\AppData\Roaming\QGIS\QGIS3\profiles\default\python\plugins\QSWATMOD2)*, which we will refer to as the QSWATMOD2 plugin directory.
+- Download [the QSWATMOD installer](https://github.com/spark-brc/QSWATMOD2/raw/main/Installer/QSWATMOD2.exe) and install it by running QSWATMOD 2.0.exe or a later version. The QSWATMOD2 is installed into the user's home directory *(~\AppData\Roaming\QGIS\QGIS3\profiles\default\python\plugins\QSWATMOD2)*, which we will refer to as the QSWATMOD2 plugin directory.
 
 <p align="center">
     <img src="./imgs/fig_01.png" width="200" align="center">
