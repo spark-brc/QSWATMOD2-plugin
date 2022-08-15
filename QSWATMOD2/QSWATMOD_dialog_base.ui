@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>789</width>
+    <width>636</width>
     <height>750</height>
    </rect>
   </property>
@@ -45,7 +45,7 @@
       <bool>true</bool>
      </property>
      <property name="currentIndex">
-      <number>4</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="General">
       <attribute name="title">
@@ -85,7 +85,7 @@
             <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'AdvTT6120e2aa,serif'; font-size:9pt;&quot;&gt;    The coupled QSWATMOD2 framework developed in this study combines the updated SWAT 2012 model (Revision 591) with MODFLOW-NWT. Within the framework, SWAT simulates land surface processes, crop growth, in-stream processes and soil zone processes, whereas MODFLOW-NWT simulates three-dimensional groundwater &lt;/span&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;fl&lt;/span&gt;&lt;span style=&quot; font-family:'AdvTT6120e2aa,serif'; font-size:9pt;&quot;&gt;ow and all associated sources and sinks (e.g. recharge, pumping, discharge to tile drains and interaction with stream network).&lt;/span&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-family:'AdvTT6120e2aa,serif'; font-size:9pt;&quot;&gt;The basic process of linking the SWAT and MODFLOW models is to pass HRU-calculated deep percolation (i.e. water that exits the bottom of the soil pro&lt;/span&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;fi&lt;/span&gt;&lt;span style=&quot; font-family:'AdvTT6120e2aa,serif'; font-size:9pt;&quot;&gt;le) as recharge to the grid cells of MODFLOW, and then pass MODFLOW-calculated groundwater–surface water interaction fluxes to the stream channels of SWAT.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
           </widget>
@@ -343,8 +343,8 @@ p, li { white-space: pre-wrap; }
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>716</width>
-            <height>734</height>
+            <width>575</width>
+            <height>633</height>
            </rect>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -1457,7 +1457,7 @@ Create &quot;river_grid&quot; shapefile</string>
                 <property name="maximumSize">
                  <size>
                   <width>16777215</width>
-                  <height>22</height>
+                  <height>20</height>
                  </size>
                 </property>
                 <property name="font">
@@ -2046,7 +2046,7 @@ linkage files</string>
             <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
           </widget>
@@ -2191,8 +2191,8 @@ p, li { white-space: pre-wrap; }
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>716</width>
-            <height>694</height>
+            <width>575</width>
+            <height>649</height>
            </rect>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_15">
@@ -3211,7 +3211,7 @@ p, li { white-space: pre-wrap; }
                      <bool>false</bool>
                     </property>
                     <property name="collapsed">
-                     <bool>true</bool>
+                     <bool>false</bool>
                     </property>
                     <property name="saveCollapsedState">
                      <bool>false</bool>
@@ -3970,8 +3970,8 @@ SWAT-MODFLOW Simulation</string>
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>716</width>
-            <height>830</height>
+            <width>596</width>
+            <height>745</height>
            </rect>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_43">
@@ -5997,7 +5997,7 @@ SWAT-MODFLOW Simulation</string>
                       </font>
                      </property>
                      <property name="title">
-                      <string>Not activatable in this version 2.0</string>
+                      <string>Not activatable in this version 2.3</string>
                      </property>
                      <property name="checkable">
                       <bool>false</bool>
@@ -6582,8 +6582,8 @@ SWAT-MODFLOW Simulation</string>
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>737</width>
-            <height>613</height>
+            <width>592</width>
+            <height>634</height>
            </rect>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_54">
@@ -7559,7 +7559,7 @@ SWAT-MODFLOW Simulation</string>
           </font>
          </property>
          <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#0000ff;&quot;&gt;- Version: 2.2-&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#0000ff;&quot;&gt;- Version: 2.3-&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
@@ -7620,17 +7620,17 @@ SWAT-MODFLOW Simulation</string>
   </connection>
  </connections>
  <buttongroups>
-  <buttongroup name="buttonGroup_irrig_active"/>
-  <buttongroup name="buttonGroup_drain_active"/>
-  <buttongroup name="buttonGroup_RT3D_active"/>
-  <buttongroup name="buttonGroup_wt_obd"/>
-  <buttongroup name="buttonGroup_mf_swat"/>
   <buttongroup name="buttonGroup_rt3d_map"/>
   <buttongroup name="buttonGroup_head_recharge"/>
-  <buttongroup name="buttonGroup_irrig_swat_active"/>
-  <buttongroup name="buttonGroup_gw_delay"/>
+  <buttongroup name="buttonGroup_mf_swat"/>
   <buttongroup name="buttonGroup_str_obd"/>
   <buttongroup name="buttonGroup_mf_active"/>
+  <buttongroup name="buttonGroup_RT3D_active"/>
+  <buttongroup name="buttonGroup_drain_active"/>
+  <buttongroup name="buttonGroup_wt_obd"/>
+  <buttongroup name="buttonGroup_gw_delay"/>
+  <buttongroup name="buttonGroup_irrig_swat_active"/>
   <buttongroup name="buttonGroup_rt_perc_conc"/>
+  <buttongroup name="buttonGroup_irrig_active"/>
  </buttongroups>
 </ui>

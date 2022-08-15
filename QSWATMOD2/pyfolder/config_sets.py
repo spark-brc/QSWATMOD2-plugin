@@ -11,14 +11,14 @@ from qgis.core import (
         QgsProject, QgsLayerTreeLayer
         )
 import glob
-from qgis.PyQt.QtCore import QVariant
+from qgis.PyQt.QtCore import QVariant, QSettings, QFileInfo
 from qgis.PyQt import QtCore, QtGui, QtSql
 import datetime
 import csv
 import posixpath
 import ntpath
 import shutil
-from PyQt5.QtWidgets import QMessageBox
+from PyQt5.QtWidgets import QMessageBox, QFileDialog
 
 msgBox = QMessageBox()
 msgBox.setWindowIcon(QtGui.QIcon(':/QSWATMOD2/pics/sm_icon.png'))
@@ -269,7 +269,7 @@ def create_irrig_mf(self):
     out_file = os.path.join(out_dir, name)
 
     # Add info
-    version = "version 2.0 "
+    version = "version 2.3 "
     time = datetime.datetime.now().strftime('- %m/%d/%y %H:%M:%S -')
 
     # User inputs ===========================================================================
@@ -423,7 +423,7 @@ def create_drain2sub(self):
     out_file = os.path.join(out_dir, name)
 
     # Add info
-    version = "version 2.0 "
+    version = "version 2.3 "
     time = datetime.datetime.now().strftime('- %m/%d/%y %H:%M:%S -')
 
     # User inputs ===========================================================================
@@ -512,7 +512,17 @@ def select_irrig_swat_grids(self):
 
     # output_file = os.path.normpath(os.path.join(output_dir, name))
     # Select features by location
-    processing.run('qgis:selectbylocation', input1, input2, ['intersects'], 0, 0)
+
+    # Select features by location
+    params = { 
+        'INPUT' : input1,
+        'PREDICATE': [0],
+        'INTERSECT': input2,
+        'METHOD': 0,
+    }
+    processing.run('qgis:selectbylocation', params)
+
+    # processing.run('qgis:selectbylocation', input1, input2, ['intersects'], 0, 0)
 
     # Save just the selected features of the target layer
     irrig_swat_grid = os.path.join(output_dir, name_ext)
@@ -584,24 +594,42 @@ def link_irrig_swat(self):
     irrig_swat_grid_s = os.path.join(output_dir, n3_ext)
     # QgsVectorFileWriter.deleteShapeFile(irrig_mf_s)
     sub_shp = QgsProject.instance().mapLayersByName("sub (SWAT)")[0]
-    processing.run(
-                    "qgis:joinattributesbylocation",
-                    irrig_swat_grid,
-                    sub_shp,
-                    ['intersects'],0,0,"sum,mean,min,max,median",0,
-                    irrig_swat_grid_s)
+
+    params = {
+        'INPUT':irrig_swat_grid,
+        'JOIN': sub_shp,
+        'PREDICATE': [0],
+        'METHOD': 0,
+        'DISCARD_NONMATCHING': False,
+        'OUTPUT': irrig_swat_grid_s,
+    }
+    processing.run("qgis:joinattributesbylocation", params)
+
+
+
+    # processing.run(
+    #                 "qgis:joinattributesbylocation",
+    #                 irrig_swat_grid,
+    #                 sub_shp,
+    #                 ['intersects'],0,0,"sum,mean,min,max,median",0,
+    #                 irrig_swat_grid_s)
 
     # Join sub id
     n4_ext = "irrig_swat_grid_f.shp"
     irrig_swat_grid_f = os.path.join(output_dir, n4_ext)
     # QgsVectorFileWriter.deleteShapeFile(irrig_mf_f)
     hru_shp = QgsProject.instance().mapLayersByName("hru (SWAT)")[0]
-    processing.run(
-                    "qgis:joinattributesbylocation",
-                    irrig_swat_grid_s,
-                    hru_shp,
-                    ['intersects'],0,0,"sum,mean,min,max,median",0,
-                    irrig_swat_grid_f)
+
+    params02 = {
+        'INPUT':irrig_swat_grid_s,
+        'JOIN': hru_shp,
+        'PREDICATE': [0],
+        'METHOD': 0,
+        'DISCARD_NONMATCHING': False,
+        'OUTPUT': irrig_swat_grid_f,
+    }
+    processing.run("qgis:joinattributesbylocation", params02)
+
 
     layer_swat = QgsVectorLayer(irrig_swat_grid_f, '{0}'.format("irrig_swat"), 'ogr')
     QgsProject.instance().addMapLayer(layer_swat, False)
@@ -614,7 +642,7 @@ def link_irrig_swat(self):
     input2 = QgsProject.instance().mapLayersByName("irrig_swat")[0]
     fields = input2.dataProvider()
     fdname = [
-                fields.indexFromName(field.name()) for field in fields.fields() if not (
+                fields.fields().indexFromName(field.name()) for field in fields.fields() if not (
                     field.name() == 'Subbasin' or
                     field.name() == 'row' or
                     field.name() == 'col' or
@@ -670,7 +698,7 @@ def write_irrig_swat(self):
     out_file = os.path.join(out_dir, name)
 
     # Add info
-    version = "version 2.0 "
+    version = "version 2.3 "
     time = datetime.datetime.now().strftime('- %m/%d/%y %H:%M:%S -')
 
     # User inputs ===========================================================================
@@ -703,7 +731,7 @@ def modify_wel(self):
     nWel_swat = layer.featureCount()
 
     # Modify an exsiting Wel file
-    version = "version 2.0."
+    version = "version 2.3."
     time = datetime.datetime.now().strftime(' - %m/%d/%y %H:%M:%S -')
 
     if any(inFile.endswith('.wel') for inFile in os.listdir(wd)):
@@ -808,7 +836,7 @@ def gw_delay(self):
 
     input2 = QgsProject.instance().mapLayersByName("gw_delay")[0]
     fields = input2.dataProvider()
-    fdname = [fields.indexFromName(field.name()) for field in fields.fields() if not field.name() == 'HRU_ID']
+    fdname = [fields.fields().indexFromName(field.name()) for field in fields.fields() if not field.name() == 'HRU_ID']
     fields.deleteAttributes(fdname)
     input2.updateFields()
     gwd = QgsField('gw_delay',  QVariant.Int)

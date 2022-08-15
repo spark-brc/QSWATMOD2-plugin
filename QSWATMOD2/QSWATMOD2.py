@@ -1766,6 +1766,7 @@ class QSWATMOD2(object):
         linking_process.export_hru_dhru(self)
         linking_process.export_dhru_grid(self)
         linking_process.export_grid_dhru(self)
+        self.dlg.progressBar_step.setValue(100)
         self.dlg.progressBar_sm_link.setValue(100)
         time = datetime.now().strftime('[%m/%d/%y %H:%M:%S]')
         self.dlg.textEdit_sm_link_log.append(time+' -> ' + 'Exporting tables from layers ... passed')    
