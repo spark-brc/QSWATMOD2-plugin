@@ -324,6 +324,9 @@ class QSWATMOD2(object):
         self.dlg.radioButton_mf_results_y.toggled.connect(self.import_mf_dates)
         self.dlg.checkBox_head.toggled.connect(self.import_mf_dates)
         self.dlg.pushButton_export_mf_results.clicked.connect(self.export_mf_results)
+        # average monthly
+        self.dlg.groupBox_hr_avg_mon.toggled.connect(self.get_rech_avg_m_df)
+
 
         # 4th Read GWSW
         self.dlg.groupBox_gwsw.toggled.connect(self.activate_gwsw)
@@ -390,6 +393,10 @@ class QSWATMOD2(object):
         self.dlg.pushButton_cvt_vtr.clicked.connect(self.cvt_vtr)
         # ---------------------------------------------------------------------------------------------
         
+        # NOTE: Export mf_hydrology map to raster
+        self.dlg.mGroupBox_cvt_vtr_mf.toggled.connect(self.read_vector_maps_hydrology)
+        self.dlg.pushButton_cvt_vtr_mf.clicked.connect(self.cvt_vtr_hydrology)
+
         
         
         # Run
@@ -524,14 +531,24 @@ class QSWATMOD2(object):
         post_ii_wt.read_wtObd(self)
 
     def export_mf_results(self):
-        if self.dlg.checkBox_recharge.isChecked():
+        if (
+            self.dlg.checkBox_recharge.isChecked() and 
+            not self.dlg.groupBox_hr_avg_mon.isChecked() and
+            not self.dlg.mGroupBox_rt_avg.isChecked()
+            ):
             post_iii_rch.export_mf_recharge(self)
+        elif (
+            self.dlg.checkBox_recharge.isChecked() and 
+            self.dlg.groupBox_hr_avg_mon.isChecked()
+            ):
+            self.export_mf_rech_avg_m()
         elif self.dlg.checkBox_head.isChecked():
             post_vi_head.export_mf_head(self)
         elif self.dlg.checkBox_nitrate.isChecked() and not self.dlg.mGroupBox_rt_avg.isChecked():
             post_vii_nitrate.export_rt_cno3(self)
         elif  self.dlg.checkBox_nitrate.isChecked() and self.dlg.mGroupBox_rt_avg.isChecked():
             self.export_rt_cno3_avg_m()
+
 
 
 
@@ -1973,6 +1990,20 @@ class QSWATMOD2(object):
     def cvt_vtr(self):
         post_vii_nitrate.cvt_vtr(self)
 # ---
+# NOTE: --- Recharge avg mon
+    def get_rech_avg_m_df(self):
+        if self.dlg.groupBox_hr_avg_mon.isChecked():
+            post_iii_rch.create_rech_avg_mon_shp(self)
+    
+    def export_mf_rech_avg_m(self):
+        post_iii_rch.export_mf_rech_avg_m(self)
+
+    def read_vector_maps_hydrology(self):
+        post_iii_rch.read_vector_maps_hydrology(self)
+
+    def cvt_vtr_hydrology(self):
+        post_iii_rch.cvt_vtr_hydrology(self)
+
 
 
     # put another ui in main ui
