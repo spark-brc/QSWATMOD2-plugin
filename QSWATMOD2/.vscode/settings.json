@@ -1,6 +1,0 @@
-{
-    "python.linting.pylintEnabled": false,
-    "python.pythonPath": "C:\\OSGEO4~1\\apps\\Python37\\python.exe",
-    "python.linting.flake8Enabled": true,
-    "python.linting.enabled": true
-}
