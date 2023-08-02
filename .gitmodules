@@ -1,0 +1,3 @@
+[submodule "src/qswatmod"]
+	path = src/qswatmod
+	url = https://github.com/spark-brc/qswatmod
