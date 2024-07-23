@@ -25,7 +25,7 @@ If applicable, add screenshots to help explain your problem.
 
 **Desktop (please complete the following information):**
  - QGIS version [e.g. 3.xx.x]
- - QSWATMOD Version [e.g. 2.x.x]
+ - QSWATMOD Version [e.g. 1.x.x]
 
 
 **Additional context**
