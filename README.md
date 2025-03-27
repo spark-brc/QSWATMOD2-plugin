@@ -17,7 +17,7 @@ All other materials: example dataset and tutorial document can be downloaded fro
 The QGIS3 software must be installed on the system prior to the installation of QSWATMOD2. We've tested QSWATMOD2 with the “long term release (LTR)” (3.28.12) and "latest release (RC)" (3.34.0) versions of QGIS3 (long term release version recommended). Download the [QGIS](https://www.qgis.org/en/site/forusers/download.html)
 
 - Install one of the versions of QGIS. It can be downloaded from https://qgis.org/en/site/forusers/download.html.
-- Download [the QSWATMOD installer](https://github.com/spark-brc/QSWATMOD2/raw/main/Installer/QSWATMOD2.exe) and install it by running QSWATMOD 2.0.exe or a later version. The QSWATMOD2 is installed into the user's home directory *(~\AppData\Roaming\QGIS\QGIS3\profiles\default\python\plugins\QSWATMOD2)*, which we will refer to as the QSWATMOD2 plugin directory.
+- Download [the QSWATMOD installer](https://github.com/spark-brc/QSWATMOD2/raw/main/Installer/QSWATMOD2.exe) and install it by running QSWATMOD 2.x.exe. The QSWATMOD2 is installed into the user's home directory *(~\AppData\Roaming\QGIS\QGIS3\profiles\default\python\plugins\QSWATMOD2)*, which we will refer to as the QSWATMOD2 plugin directory.
 
 <p align="center">
     <img src="./imgs/fig_01.png" width="200" align="center">
